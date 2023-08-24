@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*Escribe una función recursiva que calcule el factorial de un número entero positivo n.
-Por ejemplo, 4! es 1x2x3x4=24. */
+Por ejemplo, 4! es 1x2x3x4=24.*/
  
 public class Main {
     public static void main(String[] args) {

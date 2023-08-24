@@ -17,6 +17,7 @@ public class Factorial {
         if(num == 1 || num == 0) {
             return 1.0;
         } else  {
+            System.out.print(num + "*" + recursive(num-1));
             return num * recursive(num-1);
         }
     }
