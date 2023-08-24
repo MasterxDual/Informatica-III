@@ -3,6 +3,9 @@ package Exercise2;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/*Escribe una función recursiva que calcule la suma de los primeros n enteros
+positivos. Por ejemplo, n=4 es 1+2+3+4=10.*/
+
 public class Addition {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
