@@ -1,6 +1,9 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/*Escribe una función recursiva que calcule la potencia de un número base elevado a
+un exponente. Por ejemplo, 2^3=2*2*2=8*/
+
 public class Power {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
