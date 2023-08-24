@@ -14,11 +14,13 @@ public class Factorial {
     }
 
     public Double recursive(Double num) throws InputMismatchException {
-        if(num == 1 || num == 0) {
+        if(num == 1) {
+            System.out.print(num);
             return 1.0;
         } else  {
-            System.out.print(num + "*" + recursive(num-1));
-            return num * recursive(num-1);
+            Double subResult = recursive(num - 1);
+            System.out.print(" * " + num);
+            return num * subResult;
         }
     }
 }
