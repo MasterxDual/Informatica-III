@@ -15,14 +15,11 @@ public class Addition {
         do {
             num = scan.nextDouble();
             try {
-                if(num <= 0) {
-                    throw new InputMismatchException("Ha ingresado un numero invalido, vuelva a ingresarlo");
-                }
+                System.out.println(" = " + recursive(num));
             } catch (InputMismatchException e) {
                 System.out.println(e.getMessage());
             }
         } while(num <= 0);
-        System.out.println(" = " + recursive(num));
         
         scan.close();
     }
@@ -31,6 +28,8 @@ public class Addition {
         if(num == 1) {
             System.out.print(num);
             return 1.0;
+        } else if(num <= 0) {
+            throw new InputMismatchException("Ha ingresado un numero invalido, vuelva a ingresarlo");
         } else {
             Double subResult = recursive(num - 1);
             System.out.print(" + " + num);
