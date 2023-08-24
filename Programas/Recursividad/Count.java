@@ -1,6 +1,9 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/* Escribe una función recursiva que imprima un conteo regresivo desde un número n
+hasta 1. Por ejemplo, n=4 es 4,3,2,1. */
+
 public class Count {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
