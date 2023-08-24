@@ -17,6 +17,8 @@ public class Factorial {
         if(num == 1) {
             System.out.print(num);
             return 1.0;
+        } else if(num <= 0) {
+            throw new InputMismatchException("El numero ingresado es negativo o es 0, vuelva a ingresar otro numero");
         } else  {
             Double subResult = recursive(num - 1);
             System.out.print(" * " + num);

@@ -16,14 +16,12 @@ public class Main {
         do {
             num1 = scan.nextDouble();
             try {
-                if(num1 <= 0) {
-                    throw new InputMismatchException("El numero ingresado es negativo o es 0, vuelva a ingresar otro numero");
-                }
+                System.out.println(" = " + number.recursive(num1));
             } catch(InputMismatchException e) {
                 System.out.println(e.getMessage());
             }
         } while(num1 <= 0);
-        System.out.println(" = " + number.recursive(num1));
+        
         scan.close();
     }
 }
