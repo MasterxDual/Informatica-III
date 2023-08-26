@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,10 +20,20 @@ public class Power {
                     System.out.println(" * 1 = " + recursive(num1, num2));
                 }
                 System.out.println(" = " + recursive(num1, num2));
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException | ArithmeticException e) {
                 System.out.println(e.getMessage());
-            } catch (ArithmeticException e2) {
-                System.out.println(e2.getMessage());
+            } catch (StackOverflowError e) {
+                /* final String os = System.getProperty("os.name");
+                if (os.contains("Windows")) {
+                    try {
+                        Runtime.getRuntime().exec("cls");
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                } Ignorar este comentario, no es parte del programa*/
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+                System.err.println("Fuera de rango");
             }
         } while (num2 < 0);
 
