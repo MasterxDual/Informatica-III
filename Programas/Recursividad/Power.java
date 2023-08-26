@@ -9,36 +9,35 @@ public class Power {
         Scanner scan = new Scanner(System.in);
         Double num1;
         Integer num2;
-        
+
         System.out.println("Ingrese primero la base y luego el exponente");
         do {
             num1 = scan.nextDouble();
             num2 = scan.nextInt();
             try {
-                if(num2 == 0 && num1 == 0) {
-                    throw new ArithmeticException("Resultado indeterminado");
-                } else if(num2 < 0) {
-                    throw new InputMismatchException("Base o exponente invalidos, ingrese otros valores");
+                if (num2 == 1) {
+                    System.out.println(" * 1 = " + recursive(num1, num2));
                 }
+                System.out.println(" = " + recursive(num1, num2));
             } catch (InputMismatchException e) {
                 System.out.println(e.getMessage());
-            } catch(ArithmeticException e2) {
+            } catch (ArithmeticException e2) {
                 System.out.println(e2.getMessage());
             }
-        } while (num2 < 0); 
+        } while (num2 < 0);
 
-        if(num2 == 1) {
-           System.out.println(" * 1 = " + recursive(num1, num2));
-        } else if(num2 == 0 || num1 != 0) {
-            System.out.println(" = " + recursive(num1, num2));
-        }
     }
 
     public static Double recursive(Double base, Integer exponent) throws InputMismatchException, ArithmeticException {
-        if(exponent == 0) {
-            System.out.print(base + " ^ 0");
-            return 1.0;
-        } else if(exponent == 1) {
+        if (exponent == 0) {
+            if (base != 0) {
+                System.out.print(base + " ^ 0");
+                return 1.0;
+            }
+            throw new ArithmeticException("Resultado indeterminado");
+        } else if (exponent < 0) {
+            throw new InputMismatchException("Base o exponente invalidos, ingrese otros valores");
+        } else if (exponent == 1) {
             System.out.print(base);
             return base;
         } else {
