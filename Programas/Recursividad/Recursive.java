@@ -55,4 +55,19 @@ public class Recursive {
             return base * power(base, exponent - 1);
         }
     }
+
+    public Integer product(Integer number1, Integer number2) throws InputMismatchException {
+        if(number2 == 1) {
+            System.out.print(number1);
+            return number1;
+        } else if(number1 == 0 || number2 == 0) {
+            System.out.print(number1 + " * " + number2);
+            return 0;
+        } else if(number2 < 0) {
+            throw new InputMismatchException("Usted ha ingresado un numero invalido, vuelva a ingresarlos");
+        } else {
+            System.out.print(number1 + " + ");
+            return number1 + product(number1, number2 - 1);
+        }
+    }
 }

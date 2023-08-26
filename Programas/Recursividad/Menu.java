@@ -8,9 +8,11 @@ public class Menu {
         Double number;
         Double base;
         Integer exponent;
+        Integer number1;
+        Integer number2;
 
         System.out.println("Ingrese la operacion recursiva que desea realizar\n1. Factorial\n2. Suma\n3. Conteo\n4. Realizar potencia");
-        System.out.println("5. ");
+        System.out.println("5. Producto");
         switch (scan.nextInt()) {
             case 1:
                 System.out.println("Ingrese el factorial de un numero (debe ser positivo)");
@@ -48,36 +50,47 @@ public class Menu {
                 } while (numb <= 0);
                 break;
             case 4:
-            System.out.println("Ingrese primero la base y luego el exponente");
-            do {
-                base = scan.nextDouble();
-                exponent = scan.nextInt();
-                try {
-                    if (exponent == 1) {
-                        System.out.println(" * 1 = " + operation.power(base, exponent));
-                    }
-                    System.out.println(" = " + operation.power(base, exponent));
-                } catch (InputMismatchException | ArithmeticException e) {
-                    System.out.println(e.getMessage());
-                } catch (StackOverflowError e) {
-                    /* final String os = System.getProperty("os.name");
-                    if (os.contains("Windows")) {
-                        try {
-                            Runtime.getRuntime().exec("cls");
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
+                System.out.println("Ingrese primero la base y luego el exponente");
+                do {
+                    base = scan.nextDouble();
+                    exponent = scan.nextInt();
+                    try {
+                        if (exponent == 1) {
+                            System.out.println(" * 1 = " + operation.power(base, exponent));
                         }
-                    } Ignorar este comentario, no es parte del programa*/
-                    System.out.print("\033[H\033[2J");
-                    System.out.flush();
-                    System.err.println("Fuera de rango");
-                }
-            } while (exponent < 0);
-                break;
+                        System.out.println(" = " + operation.power(base, exponent));
+                    } catch (InputMismatchException | ArithmeticException e) {
+                        System.out.println(e.getMessage());
+                    } catch (StackOverflowError e) {
+                        /* final String os = System.getProperty("os.name");
+                        if (os.contains("Windows")) {
+                            try {
+                                Runtime.getRuntime().exec("cls");
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                        } Ignorar este comentario, no es parte del programa*/
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
+                        System.err.println("Fuera de rango");
+                    }
+                } while (exponent < 0);
+                    break;
             case 5:
-
+                System.out.println("Ingrese dos numeros a los cuales desea multiplicar");
+                do {
+                    number1 = scan.nextInt();
+                    number2 = scan.nextInt();
+                    try {   
+                        if(number2 >= 0) {
+                            System.out.print(number1 + " X " + number2 + " = ");
+                        }
+                        System.out.println(" = " + operation.product(number1, number2));
+                    } catch(InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                    }
+                } while(number2 < 0);
                 break;
-
         }
         scan.close();
     }
