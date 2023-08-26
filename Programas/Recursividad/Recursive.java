@@ -1,6 +1,8 @@
 import java.util.InputMismatchException;
 
 public class Recursive {
+    /* Escribe una función recursiva que calcule el factorial de un número entero positivo n.
+    Por ejemplo, 4! es 1x2x3x4=24. */
     public Double factorial(Double number) throws InputMismatchException {
         if (number == 1) {
             System.out.print(number);
@@ -14,6 +16,8 @@ public class Recursive {
         }
     }
 
+    /* Escribe una función recursiva que calcule la suma de los primeros n enteros
+    positivos. Por ejemplo, n=4 es 1+2+3+4=10. */
     public Double addition(Double number) throws InputMismatchException {
         if (number == 1) {
             System.out.print(number);
@@ -27,6 +31,8 @@ public class Recursive {
         }
     }
 
+    /* Escribe una función recursiva que imprima un conteo regresivo desde un número n
+    hasta 1. Por ejemplo, n=4 es 4,3,2,1. */
     public void count(Integer number) throws InputMismatchException {
         if(number == 1) {
             System.out.print(number);
@@ -38,6 +44,8 @@ public class Recursive {
         }
     }
 
+    /* Escribe una función recursiva que calcule la potencia de un número base elevado a
+    un exponente. Por ejemplo, 2^3=2*2*2=8 */
     public Double power(Double base, Integer exponent) throws InputMismatchException, ArithmeticException {
         if (exponent == 0) {
             if (base != 0) {
@@ -56,6 +64,8 @@ public class Recursive {
         }
     }
 
+    /* Escriba un método recursivo que calcule el producto de dos números enteros
+    usando sumas sucesivas. Por ejemplo, 2x4=2+2+2+2=8 */
     public Integer product(Integer number1, Integer number2) throws InputMismatchException {
         if(number2 == 1) {
             System.out.print(number1);
@@ -69,5 +79,15 @@ public class Recursive {
             System.out.print(number1 + " + ");
             return number1 + product(number1, number2 - 1);
         }
+    }
+
+    /* Escriba un método recursivo que imprima los elementos de un arreglo en orden
+    inverso. */
+    public void printInverse(Double[] array) {
+        
+    }
+
+    public void printNormal(Double[] array) {
+        
     }
 }

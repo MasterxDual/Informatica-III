@@ -12,7 +12,7 @@ public class Menu {
         Integer number2;
 
         System.out.println("Ingrese la operacion recursiva que desea realizar\n1. Factorial\n2. Suma\n3. Conteo\n4. Realizar potencia");
-        System.out.println("5. Producto");
+        System.out.println("5. Producto\n6. Imprimir arreglo");
         switch (scan.nextInt()) {
             case 1:
                 System.out.println("Ingrese el factorial de un numero (debe ser positivo)");
@@ -75,7 +75,7 @@ public class Menu {
                         System.err.println("Fuera de rango");
                     }
                 } while (exponent < 0);
-                    break;
+                break;
             case 5:
                 System.out.println("Ingrese dos numeros a los cuales desea multiplicar");
                 do {
@@ -90,6 +90,22 @@ public class Menu {
                         System.out.println(e.getMessage());
                     }
                 } while(number2 < 0);
+                break;
+            case 6:
+                try {
+                    System.out.println("Ingrese de cuantos elementos quiere que sea su arreglo");
+                    Double[] array = new Double[scan.nextInt()];
+                    for (int i = 0; i < array.length; i++) {
+                        System.out.println("Ingrese el elemento " + (i + 1) + ": ");
+                        array[i] = scan.nextDouble();
+                    }
+                    System.out.println("Orden normal:");
+                    
+                } catch (InputMismatchException e) {
+                    System.out.println(e.getMessage());
+                } catch (NegativeArraySizeException e) {
+                    System.err.println("No puede ingresar un valor negativo");
+                }
                 break;
         }
         scan.close();
