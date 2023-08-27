@@ -7,9 +7,11 @@ public class Menu {
         Recursive operation = new Recursive();
         Double number;
         Double base;
+        Double[] array;
         Integer exponent;
         Integer number1;
         Integer number2;
+        Integer t;
 
         System.out.println("Ingrese la operacion recursiva que desea realizar\n1. Factorial\n2. Suma\n3. Conteo\n4. Realizar potencia");
         System.out.println("5. Producto\n6. Imprimir arreglo");
@@ -94,13 +96,19 @@ public class Menu {
             case 6:
                 try {
                     System.out.println("Ingrese de cuantos elementos quiere que sea su arreglo");
-                    Double[] array = new Double[scan.nextInt()];
+                    t = scan.nextInt();
+                    array = new Double[t];
+
                     for (int i = 0; i < array.length; i++) {
                         System.out.println("Ingrese el elemento " + (i + 1) + ": ");
                         array[i] = scan.nextDouble();
                     }
+
                     System.out.println("Orden normal:");
-                    
+                    operation.printNormal(array, t);
+
+                    System.out.println("\nOrden inverso:");
+                    operation.printInverse(array, 0);
                 } catch (InputMismatchException e) {
                     System.out.println(e.getMessage());
                 } catch (NegativeArraySizeException e) {

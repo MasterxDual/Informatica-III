@@ -83,11 +83,17 @@ public class Recursive {
 
     /* Escriba un método recursivo que imprima los elementos de un arreglo en orden
     inverso. */
-    public void printInverse(Double[] array) {
-        
+    public void printInverse(Double[] array, Integer u) {
+        if(u != array.length) {
+            System.out.print(array[u] + " ");
+            printInverse(array, u + 1);
+        }
     }
 
-    public void printNormal(Double[] array) {
-        
+    public void printNormal(Double[] array, Integer v) {
+        if(v != 0) {
+            System.out.print(array[v - 1] + " ");
+            printNormal(array, v - 1);
+        }
     }
 }
