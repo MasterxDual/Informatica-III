@@ -100,15 +100,28 @@ public class Recursive {
     /* Escriba un método recursivo que devuelva el número de unos en la representación
     binaria de N. Use el hecho de que es igual al número de unos en la representación
     binaria de N/2, más 1 si N es impar. */
-    public void binary(Integer number) {
-        if(number <= 1) {
-            return;
-        } else if(number%2 != 0) {
-            System.out.print(1);
-            binary(number/2);
-        } else {
-            System.out.print(0);
-            binary(number/2);
+    public Integer binary(Integer number) {
+      
+        if(number%2 != 0) {
+            return 1 + binary(number/2);
+        } else if(number < 1) {
+            return 0;
+        } else if(number%2 == 0) {
+            return 0 + binary(number/2);
         }
+        return 0;
+    }
+
+    /* Imprime el numero ingresado en binario pero al reves, para convertirlo a binario basta con invertir su orden */
+    public void printInverseBinary(Integer number) {
+        if(number%2 != 0) {
+            System.out.print(1);
+            printInverseBinary(number/2);
+        } else if(number < 1) {
+            return;
+        } else if(number%2 == 0) {
+            System.out.print(0);
+            printInverseBinary(number/2);
+        } 
     }
 }

@@ -14,7 +14,7 @@ public class Menu {
         Integer t;
 
         System.out.println("Ingrese la operacion recursiva que desea realizar\n1. Factorial\n2. Suma\n3. Conteo\n4. Realizar potencia");
-        System.out.println("5. Producto\n6. Imprimir arreglo");
+        System.out.println("5. Producto\n6. Imprimir arreglo\n7. Imprimir cantidad de unos que tiene el numero ingresado en representacion binaria");
         switch (scan.nextInt()) {
             case 1:
                 System.out.println("Ingrese el factorial de un numero (debe ser positivo)");
@@ -118,7 +118,9 @@ public class Menu {
             case 7:
                 System.out.println("Ingrese el numero que desea convertir a binario");
                 t = scan.nextInt();
-                operation.binary(t);
+                System.out.println("La cantidad de unos que tiene el numero " + t + " es igual a " + operation.binary(t));
+                System.out.println("Numero binario invertido:");
+                operation.printInverseBinary(t);
         }
         scan.close();
     }
