@@ -96,4 +96,19 @@ public class Recursive {
             printNormal(array, v - 1);
         }
     }
+
+    /* Escriba un método recursivo que devuelva el número de unos en la representación
+    binaria de N. Use el hecho de que es igual al número de unos en la representación
+    binaria de N/2, más 1 si N es impar. */
+    public void binary(Integer number) {
+        if(number <= 1) {
+            return;
+        } else if(number%2 != 0) {
+            System.out.print(1);
+            binary(number/2);
+        } else {
+            System.out.print(0);
+            binary(number/2);
+        }
+    }
 }

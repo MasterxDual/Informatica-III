@@ -115,6 +115,10 @@ public class Menu {
                     System.err.println("No puede ingresar un valor negativo");
                 }
                 break;
+            case 7:
+                System.out.println("Ingrese el numero que desea convertir a binario");
+                t = scan.nextInt();
+                operation.binary(t);
         }
         scan.close();
     }
