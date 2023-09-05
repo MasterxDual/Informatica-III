@@ -1,10 +1,9 @@
 package Ordenamiento;
 
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Insertion {
+public class InsertionA {
     public static void main(String[] args) {
         Integer[] randomArray = new Integer[arraySize()];
         
@@ -12,41 +11,47 @@ public class Insertion {
         for (int i = 0; i < randomArray.length; i++) {
             randomArray[i] = random.nextInt(10);
         }
-        //Main.showArray(randomArray);
+        showArray(randomArray);
         
         long startTime = System.nanoTime();
-        for (int i = 1; i < randomArray.length; i++) {
-            int key = randomArray[i];
-            int j = i - 1;
         
-            while (j >= 0 && randomArray[j] > key) {
-                randomArray[j + 1] = randomArray[j];
-                j--;
-            }
-        
-            randomArray[j + 1] = key;
-        }
+        insertionSort(randomArray);
+
         long endTime = System.nanoTime();
         
         long elapsedTimeMillis = (endTime - startTime) / 100000;
         
-        Insertion.showArray(randomArray);
+        showArray(randomArray);
         System.out.println("Tiempo transcurrido: " + elapsedTimeMillis + "milisegundos.");
         
 
 
     }
 
+    //2. Implementar función que reciba un array y que lo muestre en pantalla.
     public static void showArray(Integer[] array) {
         for (Integer integer : array) {
             System.out.print(integer + " ");
         } 
+        System.out.println();
     }
 
-    public static Integer arraySize() throws InputMismatchException {
+    public static Integer arraySize() {
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Ingrese la cantidad de numeros del array");
         return scan.nextInt();
     } 
+
+    public static void insertionSort(Integer[] array) {
+        for (int i = 1; i < array.length; i++) {
+            Integer tmp = array[i];
+            int j = i;
+
+            for( ; j > 0 && tmp.compareTo(array[j - 1]) < 0; j--) {
+                array[j] = array[j - 1];
+            }
+            array[j] = tmp;
+        }
+    }
 }

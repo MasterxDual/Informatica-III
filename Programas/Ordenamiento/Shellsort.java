@@ -12,7 +12,7 @@ public class Shellsort {
         for (int i = 0; i < randomArray.length; i++) {
             randomArray[i] = random.nextInt(10);
         }
-        //Main.showArray(randomArray);
+        //showArray(randomArray);
         
         long startTime = System.nanoTime();
 
@@ -32,7 +32,7 @@ public class Shellsort {
         
         long elapsedTimeMillis = (endTime - startTime) / 100000;
         
-        Insertion.showArray(randomArray);
+        showArray(randomArray);
         System.out.println("Tiempo transcurrido: " + elapsedTimeMillis + "milisegundos.");
         
 
