@@ -6,30 +6,25 @@ import java.util.Scanner;
 public class InsertionB {
     public static void main(String[] args) {
         //Carga por teclado la cantidad de elementos que tendrá el array
-        Double[] randomArray = new Double[arraySize()];
+        Double[] randomArray = generateDoubleArray(arraySize());
         
-        //Crea los elementos random del array, cargando el mismo de elementos aleatorios
-        Random random = new Random();
-        for (int i = 0; i < randomArray.length; i++) {
-            randomArray[i] = random.nextDouble(10);
-        }
-        //showArray(randomArray);
+        showArray(randomArray);
         
         //Cuenta el tiempo en milisegundos actual, antes de empezar a ordenar los datos con el ordenamiento
         long startTime = System.nanoTime();
         
         insertionSort(randomArray);
 
+        //Cuenta el tiempo en milisegundos actual, despues de ordenar los datos con el ordenamiento
         long endTime = System.nanoTime();
         
-        //Cuenta el tiempo en milisegundos actual, despues de ordenar los datos con el ordenamiento
+        //Calcula el tiempo que tardó desde el inicio hasta el final, es decir el tiempo total en ordenar los datos con el ordenamiento
         long elapsedTimeMillis = (endTime - startTime) / 100000;
         
         /*4. Realizar captura de tiempos para cada uno de los algoritmos de ordenamiento para: a. 100 elementos. b. 1000 elementos. c. 10000 elementos.
         a. 100 elementos: 2 milisegundos
         b. 1000 elementos: 37 milisegundos
         c. 10000 elementos: 492 milisegundos*/
-        //Calcula el tiempo que tardó desde el inicio hasta el final, es decir el tiempo total en ordenar los datos con el ordenamiento
         showArray(randomArray);
         System.out.println("Tiempo transcurrido: " + elapsedTimeMillis + "milisegundos.");
         
@@ -42,7 +37,7 @@ public class InsertionB {
         for (Double number : array) {
             System.out.print(number + " ");
         } 
-        System.out.println();
+        System.out.println("\n------------------");
     }
 
     public static Integer arraySize() {
@@ -51,6 +46,18 @@ public class InsertionB {
         System.out.println("Ingrese la cantidad de numeros del array");
         return scan.nextInt();
     } 
+
+    //3. Implementar funcion que reciba la longitud de array y retorne un array cargado de números aleatorios.
+    public static Double[] generateDoubleArray(int size) {
+        //Crea los elementos random del array, cargando el mismo de elementos aleatorios
+        Double[] randomArray = new Double[size];
+        Random random = new Random();
+        for (int i = 0; i < size; i++) {
+            randomArray[i] = random.nextDouble(10);
+        }
+
+        return randomArray;
+    }
 
     /*1. Implemente los métodos de ordenación de inserción usando
     las implementaciones del teórico. Ejecútelos con los siguientes objetos:
