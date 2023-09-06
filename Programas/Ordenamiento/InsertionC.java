@@ -17,9 +17,10 @@ public class InsertionC {
         
         insertionSort(randomArray);
 
+        //Cuenta el tiempo en milisegundos actual, despues de ordenar los datos con el ordenamiento
         long endTime = System.nanoTime();
         
-        //Cuenta el tiempo en milisegundos actual, despues de ordenar los datos con el ordenamiento
+        //Calcula el tiempo que tardó desde el inicio hasta el final, es decir el tiempo total en ordenar los datos con el ordenamiento
         long elapsedTimeMillis = (endTime - startTime) / 100000;
         
         showArray(randomArray);
@@ -28,7 +29,6 @@ public class InsertionC {
         a. 100 elementos: 3 milisegundos
         b. 1000 elementos: 50 milisegundos
         c. 10000 elementos: 641 milisegundos*/
-        //Calcula el tiempo que tardó desde el inicio hasta el final, es decir el tiempo total en ordenar los datos con el ordenamiento
         System.out.println("Tiempo transcurrido: " + elapsedTimeMillis + "milisegundos.");
         
 
