@@ -6,13 +6,8 @@ import java.util.Scanner;
 public class InsertionA {
     public static void main(String[] args) {
         //Carga por teclado la cantidad de elementos que tendrá el array
-        Integer[] randomArray = new Integer[arraySize()];
+        Integer[] randomArray = generateIntegerArray(arraySize());
         
-        //Crea los elementos random del array, cargando el mismo de elementos aleatorios
-        Random random = new Random();
-        for (int i = 0; i < randomArray.length; i++) {
-            randomArray[i] = random.nextInt(10);
-        }
         showArray(randomArray);
         
         //Cuenta el tiempo en milisegundos actual, antes de empezar a ordenar los datos con el ordenamiento
@@ -32,8 +27,6 @@ public class InsertionA {
         
         showArray(randomArray);
         System.out.println("Tiempo transcurrido: " + elapsedTimeMillis + "milisegundos.");
-        
-
 
     }
 
@@ -42,7 +35,19 @@ public class InsertionA {
         for (Integer integer : array) {
             System.out.print(integer + " ");
         } 
-        System.out.println();
+        System.out.println("\n------------------");
+    }
+
+    //3. Implementar funcion que reciba la longitud de array y retorne un array cargado de números aleatorios.
+    public static Integer[] generateIntegerArray(int size) {
+        //Crea los elementos random del array, cargando el mismo de elementos aleatorios
+        Integer[] randomArray = new Integer[size];
+        Random random = new Random();
+        for (int i = 0; i < size; i++) {
+            randomArray[i] = random.nextInt(10);
+        }
+
+        return randomArray;
     }
 
     public static Integer arraySize() {
