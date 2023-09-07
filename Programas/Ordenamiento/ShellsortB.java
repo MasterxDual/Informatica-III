@@ -61,7 +61,7 @@ public class ShellsortB {
 
     /*1. Implemente los métodos de ordenación de inserción usando
     las implementaciones del teórico. Ejecútelos con los siguientes objetos:
-    a. enteros. */
+    b. números reales de tipo double. */
     public static void shell (Double[] array, int size) {
         int gap;
         int i;
