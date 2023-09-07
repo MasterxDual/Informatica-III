@@ -67,9 +67,9 @@ public class ShellsortA {
         int i;
         int j;
         int temp;
-        for (gap=size/2; gap > 0; gap /= 2)
+        for (gap=size/2; gap > 0; gap = gap / 2)
             for ( i = gap; i < size; i++)
-                for ( j=i-gap; j>=0 && array[j] > array[j+gap]; j-=gap) {
+                for ( j = i-gap; j >= 0 && array[j] > array[j+gap]; j = j - gap) {
                     temp = array[j];
                     array[j] = array[j+gap];
                     array[j+gap] = temp;
