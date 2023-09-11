@@ -40,7 +40,7 @@ public class Ordering <T extends Comparable <T>> {
         T temp;
         for (gap=size/2; gap > 0; gap = gap / 2)
             for ( i = gap; i < size; i++)
-                for ( j = i-gap; j >= 0 && (Double)array[j] > (Double)array[j+gap]; j = j - gap) {
+                for ( j = i-gap; j >= 0 && array[j].compareTo(array[j+gap]) > 0; j = j - gap) {
                     temp = array[j];
                     array[j] = array[j+gap];
                     array[j+gap] = temp;

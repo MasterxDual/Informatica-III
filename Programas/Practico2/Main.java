@@ -21,17 +21,17 @@ public class Main {
 
         //Shellsort for different types
         orderingTest.testShellsort(Integer.class);
-        /*a. 100 elementos: 0 milisegundos
-        b. 1000 elementos: 38 milisegundos
-        c. 10000 elementos: 714 milisegundos*/
+        /*a. 100 elementos: 1 milisegundos
+        b. 1000 elementos: 7 milisegundos
+        c. 10000 elementos: 59 milisegundos*/
         orderingTest.testShellsort(Double.class);
-        /*a. 100 elementos: 2 milisegundos
-        b. 1000 elementos: 38 milisegundos
-        c. 10000 elementos: 714 milisegundos*/
+        /*a. 100 elementos: 5 milisegundos
+        b. 1000 elementos: 12 milisegundos
+        c. 10000 elementos: 138 milisegundos*/
         orderingTest.testShellsort(String.class);
         /*a. 100 elementos: 2 milisegundos
-        b. 1000 elementos: 38 milisegundos
-        c. 10000 elementos: 714 milisegundos*/
+        b. 1000 elementos: 32 milisegundos
+        c. 10000 elementos: 93 milisegundos*/
     }
 
 }
