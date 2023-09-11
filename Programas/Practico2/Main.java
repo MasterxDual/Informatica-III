@@ -6,19 +6,32 @@ public class Main {
         OrderingTest orderingTest = new OrderingTest();
 
         //Insertion sort for different types
-        orderingTest.testInsertion(Integer.class);
+        //orderingTest.testInsertion(Integer.class);
         /*a. 100 elementos: 2 milisegundos
         b. 1000 elementos: 38 milisegundos
         c. 10000 elementos: 714 milisegundos*/
-        orderingTest.testInsertion(Double.class);
+        //orderingTest.testInsertion(Double.class);
         /* a. 100 elementos: 5 milisegundos
         b. 1000 elementos: 119 milisegundos
         c. 10000 elementos: 631 milisegundos*/
-        orderingTest.testInsertion(String.class);
+        //orderingTest.testInsertion(String.class);
         /* a. 100 elementos: 7 milisegundos
         b. 1000 elementos: 89 milisegundos
         c. 10000 elementos: 971 milisegundos*/
 
+        //Shellsort for different types
+        orderingTest.testShellsort(Integer.class);
+        /*a. 100 elementos: 0 milisegundos
+        b. 1000 elementos: 38 milisegundos
+        c. 10000 elementos: 714 milisegundos*/
+        orderingTest.testShellsort(Double.class);
+        /*a. 100 elementos: 2 milisegundos
+        b. 1000 elementos: 38 milisegundos
+        c. 10000 elementos: 714 milisegundos*/
+        orderingTest.testShellsort(String.class);
+        /*a. 100 elementos: 2 milisegundos
+        b. 1000 elementos: 38 milisegundos
+        c. 10000 elementos: 714 milisegundos*/
     }
 
 }

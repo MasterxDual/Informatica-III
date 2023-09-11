@@ -30,6 +30,23 @@ public class Ordering <T extends Comparable <T>> {
         }
     }
 
+    /*1. Implemente los métodos de ordenación de inserción usando
+    las implementaciones del teórico. Ejecútelos con los siguientes objetos:
+    a. enteros. b. números reales de tipo double. c. cadena de caracteres.*/
+    public void shell (T[] array, int size) {
+        int gap;
+        int i;
+        int j;
+        T temp;
+        for (gap=size/2; gap > 0; gap = gap / 2)
+            for ( i = gap; i < size; i++)
+                for ( j = i-gap; j >= 0 && (Double)array[j] > (Double)array[j+gap]; j = j - gap) {
+                    temp = array[j];
+                    array[j] = array[j+gap];
+                    array[j+gap] = temp;
+                } 
+    }
+
     //Tipos de datos = clases
     //2. Implementar función que reciba un array y que lo muestre en pantalla.
     public void showArray(T[] array) {
