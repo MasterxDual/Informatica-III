@@ -1,6 +1,5 @@
 package Practico3.utils;
 
-import java.util.Objects;
 import Practico3.exceptions.StackIsEmptyException;
 import Practico3.exceptions.StackIsFullException;
 
