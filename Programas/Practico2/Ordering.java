@@ -47,6 +47,42 @@ public class Ordering <T extends Comparable <T>> {
                 } 
     }
 
+    /*1. Implemente los métodos de ordenación de inserción usando
+    las implementaciones del teórico. Ejecútelos con los siguientes objetos:
+    a. enteros. b. números reales de tipo double. c. cadena de caracteres.*/ 
+    public void quickSort(T[] array, int left, int right) {
+        int i = left;
+        int j = right;
+        T temp;
+        do {
+            while((array[j].compareTo(array[i]) > 0) && (j > i)) {
+                j--;
+            }
+            if(i < j) {
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+            }
+            while((array[i].compareTo(array[j]) < 0) && (i < j)) { 
+                i++;
+            }
+            if(i < j) {
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                j--;
+            }
+        } while(i < j);
+        if(left < j) {
+            quickSort(array, left, j - 1);
+        }
+        if(i < right) {
+            quickSort(array, i + 1, right); 
+        }
+        
+    }
+
     //Tipos de datos = clases
     //2. Implementar función que reciba un array y que lo muestre en pantalla.
     public void showArray(T[] array) {
