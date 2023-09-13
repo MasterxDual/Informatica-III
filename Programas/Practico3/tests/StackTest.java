@@ -67,30 +67,31 @@ public class StackTest {
 
         String word = "Anita Lava La Tina";
         word = word.toLowerCase().replace(" ", "");
-        Stack <Character> stackChar = new Stack<>(word.length());
+        int size = word.length();
+        Stack <Character> stackChar = new Stack<>(size);
         try {
             //Metodo pensado por mi, un poco rebuscado pero bueno, salió. No es el mas óptimo.
-             for(int i = 0; i < word.length() / 2; i++) {
+             for(int i = 0; i < size / 2; i++) {
                 stackChar.push(word.charAt(i));
                 System.out.println(stackChar.top());
             }
-            for(int t = word.length() % 2 != 0 ? word.length() / 2 + 2 : word.length() / 2 + 1; t < word.length(); t++) {
+            for(int t = size % 2 != 0 ? size / 2 + 2 : size / 2 + 1; t < size; t++) {
                 if(!stackChar.pop().equals(word.charAt(t - 1))) {
                     System.out.println("No es palíndromo");
                     return;
                 } 
             } 
             /* //Metodo de Abby, el mas optimo. El problema es que no usa el stack como se pide en la consigna.
-            for (int s = 0; s < word.length() / 2; s++) {
-                if(word.charAt(s) != word.charAt(word.length() - 1 - s)) {
+            for (int s = 0; s < size / 2; s++) {
+                if(word.charAt(s) != word.charAt(size - 1 - s)) {
                     System.out.println("No es palíndromo");
                     break;
                 }
             } 
             //Mas optimo que el primer metodo pero no tiene sentido pushear y luego poppear a la vez, pero bueno, funciona.
-            for (int u = 0; u < word.length() / 2; u++) {
+            for (int u = 0; u < size / 2; u++) {
                 stackChar.push(word.charAt(u));
-                if(!stackChar.pop().equals(word.charAt(word.length() - 1 - u))) {
+                if(!stackChar.pop().equals(word.charAt(size - 1 - u))) {
                     System.out.println("No es palíndromo");
                     return;
                 }
