@@ -57,6 +57,7 @@ public class StackTest {
 
     public void verifyPalindrome() {
         String word = "Anita Lava La Tina";
+        word = word.toLowerCase().replace(" ", "");
         Stack <Character> stackChar = new Stack<>(word.length());
         /*2. Comprobación de Palíndromos:
         a. Crea un programa que verifique si una cadena es un palíndromo (se
@@ -66,7 +67,6 @@ public class StackTest {
         caracteres de la cadena y compara los caracteres de la segunda mitad
         con los elementos desapilados de la pila para determinar si es un
         palíndromo. */
-        System.out.println(word.toLowerCase().replace(" ", ""));
         try {
             for(int i = 0; i < word.length() / 2; i++) {
                 stackChar.push(word.charAt(i));       
