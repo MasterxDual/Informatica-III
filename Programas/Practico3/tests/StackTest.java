@@ -56,9 +56,6 @@ public class StackTest {
     }
 
     public void verifyPalindrome() {
-        String word = "Anita Lava La Tina";
-        word = word.toLowerCase().replace(" ", "");
-        Stack <Character> stackChar = new Stack<>(word.length());
         /*2. Comprobación de Palíndromos:
         a. Crea un programa que verifique si una cadena es un palíndromo (se
         lee igual de izquierda a derecha y de derecha a izquierda).
@@ -67,11 +64,39 @@ public class StackTest {
         caracteres de la cadena y compara los caracteres de la segunda mitad
         con los elementos desapilados de la pila para determinar si es un
         palíndromo. */
+
+        String word = "Anita Lava La Tina";
+        word = word.toLowerCase().replace(" ", "");
+        Stack <Character> stackChar = new Stack<>(word.length());
         try {
-            for(int i = 0; i < word.length() / 2; i++) {
-                stackChar.push(word.charAt(i));       
+            //Metodo pensado por mi, un poco rebuscado pero bueno, salió. No es el mas óptimo.
+             for(int i = 0; i < word.length() / 2; i++) {
+                stackChar.push(word.charAt(i));
+                System.out.println(stackChar.top());
             }
-        } catch (StackIsFullException e) {
+            for(int t = word.length() % 2 != 0 ? word.length() / 2 + 2 : word.length() / 2 + 1; t < word.length(); t++) {
+                if(!stackChar.pop().equals(word.charAt(t - 1))) {
+                    System.out.println("No es palíndromo");
+                    return;
+                } 
+            } 
+            /* //Metodo de Abby, el mas optimo. El problema es que no usa el stack como se pide en la consigna.
+            for (int s = 0; s < word.length() / 2; s++) {
+                if(word.charAt(s) != word.charAt(word.length() - 1 - s)) {
+                    System.out.println("No es palíndromo");
+                    break;
+                }
+            } 
+            //Mas optimo que el primer metodo pero no tiene sentido pushear y luego poppear a la vez, pero bueno, funciona.
+            for (int u = 0; u < word.length() / 2; u++) {
+                stackChar.push(word.charAt(u));
+                if(!stackChar.pop().equals(word.charAt(word.length() - 1 - u))) {
+                    System.out.println("No es palíndromo");
+                    return;
+                }
+            } */
+            System.out.println("Es palíndromo");
+        } catch (StackIsFullException | StackIsEmptyException e) {
             System.out.println(e.getMessage());
         } 
     }
