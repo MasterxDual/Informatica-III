@@ -81,16 +81,14 @@ public class StackTest {
             /* //Metodo de Abby, el mas optimo. El problema es que no usa el stack como se pide en la consigna.
             for (int s = 0; s < size / 2; s++) {
                 if(word.charAt(s) != word.charAt(size - 1 - s)) {
-                    System.out.println("No es palíndromo");
-                    break;
+                    return false;
                 }
             } 
             //Mas optimo que el primer metodo pero no tiene sentido pushear y luego poppear a la vez, pero bueno, funciona.
             for (int u = 0; u < size / 2; u++) {
                 stackChar.push(word.charAt(u));
                 if(!stackChar.pop().equals(word.charAt(size - 1 - u))) {
-                    System.out.println("No es palíndromo");
-                    return;
+                    return false;
                 }
             } */
             return true;
