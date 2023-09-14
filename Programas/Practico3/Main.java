@@ -9,6 +9,6 @@ public class Main {
         /* test1.testStackInteger();
         test1.testStackString(); 
         test1.verifyPalindrome();*/
-        System.out.println(test1.isMathematicExpression("((2 + 3) * 5) - 8))") ? "Expression is equilibrated" : "Expression is not equilibrated");
+        System.out.println(test1.isMathematicExpression("(((((2 + 3) * 5) - 8))") ? "Expression is equilibrated" : "Expression is not equilibrated");
     }
 }

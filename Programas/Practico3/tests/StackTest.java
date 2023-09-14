@@ -117,6 +117,7 @@ public class StackTest {
         int size = expression.length();
         Stack <Character> stackChar = new Stack<>(size);
 
+        /* Metodo mio
         try {
             for (int u = 0; u < size; u++) {
                 if(expression.charAt(u) == '(') {
@@ -135,6 +136,27 @@ public class StackTest {
         } catch (StackIsFullException | StackIsEmptyException e) {
             System.out.println(e.getMessage());
         }
-        return false;    
+        return false; */
+        
+        /* Metodo mas sencillo:
+        Si ves lineas de código repetido, seguramente se puede simplificar
+        Por ejemplo return true, return true y así.
+        No importa donde esten los return, si estan repetidos hay una pista.
+        Si ves varios if que hacen lo mismo (isEmpty en este caso), 
+        seguramente se puede simplificar (aunque cuestan más esos casos).
+        */
+        try {
+            for (int u = 0; u < size; u++) {
+                if(expression.charAt(u) == '(') {
+                    stackChar.push('(');
+                } else if(expression.charAt(u) == ')') {
+                    System.out.println(stackChar.pop() + " was eliminated from the stack");
+                }
+            }
+            return stackChar.isEmpty();
+        } catch (StackIsFullException | StackIsEmptyException e) {
+            System.out.println(e.getMessage());
+            return false;     
+        }
     }
 }
