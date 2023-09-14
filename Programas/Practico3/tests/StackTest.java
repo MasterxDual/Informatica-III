@@ -3,6 +3,7 @@ package Practico3.tests;
 import Practico3.exceptions.StackIsEmptyException;
 import Practico3.exceptions.StackIsFullException;
 import Practico3.utils.Stack;
+import Practico3.utils.StackList;
 
 public class StackTest {
     /*1. c. Prueba tu implementación utilizando diferentes operaciones y
@@ -154,5 +155,27 @@ public class StackTest {
             System.out.println(e.getMessage());
             return false;     
         }
+    }
+
+    public void testStackListInteger() {
+        StackList<Integer> stackList1 = new StackList<>();
+
+        stackList1.push(1);
+        stackList1.push(2);
+        stackList1.push(3);
+        stackList1.push(4);
+        
+        try {
+            System.out.println(stackList1.pop());
+            System.out.println(stackList1.pop());
+            System.out.println(stackList1.pop());
+            System.out.println(stackList1.pop());
+            System.out.println(stackList1.pop());
+        } catch (StackIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(stackList1.isEmpty());
+        System.out.println(stackList1.size());
     }
 }
