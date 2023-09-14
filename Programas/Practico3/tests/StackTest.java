@@ -101,4 +101,40 @@ public class StackTest {
             System.out.println(e.getMessage());
         } 
     }
+
+    public boolean isMathematicExpression(String expression) {
+        /* 3. Expresiones Matemáticas:
+        a. Implementa un programa que verifique si una expresión matemática
+        con paréntesis está correctamente equilibrada.
+        b. Utiliza una pila para rastrear los paréntesis y asegurarte de que cada
+        apertura tenga un cierre correspondiente.
+        c. Siempre que se encuentre un paréntesis de cierre, se verifica si hay un
+        paréntesis de apertura correspondiente en la pila. Si la pila está vacía
+        al final del proceso, la expresión se considera equilibrada. Si no,
+        significa que hay paréntesis sin su correspondiente paréntesis de
+        apertura, y la expresión no está equilibrada. */
+        expression = expression.replace(" ", "");
+        int size = expression.length();
+        Stack <Character> stackChar = new Stack<>(size);
+
+        try {
+            for (int u = 0; u < size; u++) {
+                if(expression.charAt(u) == '(') {
+                    stackChar.push('(');
+                } else if(expression.charAt(u) == ')') {
+                    if(!stackChar.isEmpty()) {
+                        System.out.println(stackChar.pop() + " was eliminated from the stack");
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            if(stackChar.isEmpty()) {
+                return true;
+            }
+        } catch (StackIsFullException | StackIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;    
+    }
 }

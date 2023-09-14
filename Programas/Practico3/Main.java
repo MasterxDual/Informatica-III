@@ -7,7 +7,8 @@ public class Main {
         StackTest test1 = new StackTest();
     
         /* test1.testStackInteger();
-        test1.testStackString(); */
-        test1.verifyPalindrome();
+        test1.testStackString(); 
+        test1.verifyPalindrome();*/
+        System.out.println(test1.isMathematicExpression("((2 + 3) * 5) - 8))") ? "Expression is equilibrated" : "Expression is not equilibrated");
     }
 }
