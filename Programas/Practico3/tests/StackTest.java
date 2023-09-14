@@ -55,7 +55,7 @@ public class StackTest {
         }
     }
 
-    public void verifyPalindrome() {
+    public boolean isPalindrome(String word) {
         /*2. Comprobación de Palíndromos:
         a. Crea un programa que verifique si una cadena es un palíndromo (se
         lee igual de izquierda a derecha y de derecha a izquierda).
@@ -64,8 +64,6 @@ public class StackTest {
         caracteres de la cadena y compara los caracteres de la segunda mitad
         con los elementos desapilados de la pila para determinar si es un
         palíndromo. */
-
-        String word = "Anita Lava La Tina";
         word = word.toLowerCase().replace(" ", "");
         int size = word.length();
         Stack <Character> stackChar = new Stack<>(size);
@@ -77,8 +75,7 @@ public class StackTest {
             }
             for(int t = size % 2 != 0 ? size / 2 + 2 : size / 2 + 1; t < size; t++) {
                 if(!stackChar.pop().equals(word.charAt(t - 1))) {
-                    System.out.println("No es palíndromo");
-                    return;
+                    return false;
                 } 
             } 
             /* //Metodo de Abby, el mas optimo. El problema es que no usa el stack como se pide en la consigna.
@@ -96,9 +93,10 @@ public class StackTest {
                     return;
                 }
             } */
-            System.out.println("Es palíndromo");
+            return true;
         } catch (StackIsFullException | StackIsEmptyException e) {
             System.out.println(e.getMessage());
+            return false;
         } 
     }
 
@@ -137,7 +135,7 @@ public class StackTest {
             System.out.println(e.getMessage());
         }
         return false; */
-        
+
         /* Metodo mas sencillo:
         Si ves lineas de código repetido, seguramente se puede simplificar
         Por ejemplo return true, return true y así.
