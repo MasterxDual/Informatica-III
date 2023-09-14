@@ -159,32 +159,32 @@ public class StackTest {
 
 
     /* 1. Implementación de una Pila con lista:
-    a. Crea una clase que represente una pila utilizando una lista.
+    a. Crea una clase que represente una pila utilistackList2zando una lista.
     b. Implementa métodos para push (agregar un elemento), pop (eliminar
     el elemento en la cima) y top (ver el elemento en la cima sin
     eliminarlo).
     c. Prueba tu implementación utilizando diferentes operaciones y
     elementos.*/
     public void testStackListInteger() {
-        StackList<Integer> stackList1 = new StackList<>();
+        StackList<Integer> stackList = new StackList<>();
 
-        stackList1.push(1);
-        stackList1.push(2);
-        stackList1.push(3);
-        stackList1.push(4);
+        stackList.push(1);
+        stackList.push(2);
+        stackList.push(3);
+        stackList.push(4);
         
         try {
-            System.out.println(stackList1.pop());
-            System.out.println(stackList1.pop());
-            System.out.println(stackList1.pop());
-            System.out.println(stackList1.pop());
-            System.out.println(stackList1.pop());
+            System.out.println(stackList.pop());
+            System.out.println(stackList.pop());
+            System.out.println(stackList.pop());
+            System.out.println(stackList.pop());
+            System.out.println(stackList.pop());
         } catch (StackIsEmptyException e) {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(stackList1.isEmpty());
-        System.out.println(stackList1.size());
+        System.out.println(stackList.isEmpty());
+        System.out.println(stackList.size());
     }
 
     /*2. Pila de Palabras:
@@ -192,21 +192,45 @@ public class StackTest {
     solicite al usuario ingresar palabras y las apile. Luego, desapílalas e
     imprímelas en orden inverso. */
     public void makeStackOfWords() {
-        StackList<String> stackList2 = new StackList<>();
+        StackList<String> stackList = new StackList<>();
 
-        stackList2.push("Hola");
-        stackList2.push("Mundo");
-        stackList2.push("Palabra 1");
-        stackList2.push("Palabra 2");
+        stackList.push("Hola");
+        stackList.push("Mundo");
+        stackList.push("Palabra 1");
+        stackList.push("Palabra 2");
         
         try {
-            System.out.println(stackList2.pop());
-            System.out.println(stackList2.pop());
-            System.out.println(stackList2.pop());
-            System.out.println(stackList2.pop());
+            System.out.println(stackList.pop());
+            System.out.println(stackList.pop());
+            System.out.println(stackList.pop());
+            System.out.println(stackList.pop());
         } catch (StackIsEmptyException e) {
             System.out.println(e.getMessage());
         }
+    }
 
+    /*3. Verificación de Paréntesis
+    a. Escribe un programa que verifique si una expresión matemática tiene
+    paréntesis balanceados. Por ejemplo, para la expresión ((3+2)*5) la
+    salida debería ser "Paréntesis balanceados", mientras que para
+    ((3+2)*5)) la salida debería ser "Paréntesis desbalanceados".*/
+
+    public boolean isBalancedExpression(String word) {
+        word = word.replace(" ", "");
+        int size = word.length();
+        StackList <Character> stackList = new StackList<>();
+        
+        try {
+            for(int s = 0; s < size; s++) {
+                if(word.charAt(s) == '(') {
+                    stackList.push('(');
+                } else if(word.charAt(s) == ')') {
+                    stackList.pop();
+                }
+            }
+            return stackList.isEmpty();
+        } catch (StackIsEmptyException e) {
+            return false;
+        }
     }
 }
