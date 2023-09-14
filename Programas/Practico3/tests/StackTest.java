@@ -157,6 +157,14 @@ public class StackTest {
         }
     }
 
+
+    /* 1. Implementación de una Pila con lista:
+    a. Crea una clase que represente una pila utilizando una lista.
+    b. Implementa métodos para push (agregar un elemento), pop (eliminar
+    el elemento en la cima) y top (ver el elemento en la cima sin
+    eliminarlo).
+    c. Prueba tu implementación utilizando diferentes operaciones y
+    elementos.*/
     public void testStackListInteger() {
         StackList<Integer> stackList1 = new StackList<>();
 
@@ -177,5 +185,28 @@ public class StackTest {
 
         System.out.println(stackList1.isEmpty());
         System.out.println(stackList1.size());
+    }
+
+    /*2. Pila de Palabras:
+    a. Implementa una pila que almacene palabras. Crea un programa que
+    solicite al usuario ingresar palabras y las apile. Luego, desapílalas e
+    imprímelas en orden inverso. */
+    public void makeStackOfWords() {
+        StackList<String> stackList2 = new StackList<>();
+
+        stackList2.push("Hola");
+        stackList2.push("Mundo");
+        stackList2.push("Palabra 1");
+        stackList2.push("Palabra 2");
+        
+        try {
+            System.out.println(stackList2.pop());
+            System.out.println(stackList2.pop());
+            System.out.println(stackList2.pop());
+            System.out.println(stackList2.pop());
+        } catch (StackIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
