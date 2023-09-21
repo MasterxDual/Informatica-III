@@ -24,11 +24,9 @@ public class StackTest {
             System.out.println(stackInteger.pop());
             System.out.println(stackInteger.pop());
             System.out.println(stackInteger.pop()); //StackIsEmptyException
-        } catch(StackIsEmptyException e) {
+        } catch(StackIsEmptyException | StackIsFullException e) {
             System.out.println(e.getMessage());
-        } catch(StackIsFullException e) {
-            System.out.println(e.getMessage());
-        }
+        } 
     }
 
     /*1. c. Prueba tu implementación utilizando diferentes operaciones y
@@ -49,9 +47,7 @@ public class StackTest {
             stackString.push("Que tal");
             stackString.push("!!!");
             stackString.push("!!!"); //StackIsFullException
-        } catch (StackIsEmptyException e) {
-            System.out.println(e.getMessage());
-        } catch (StackIsFullException e) {
+        } catch (StackIsEmptyException | StackIsFullException e) {
             System.out.println(e.getMessage());
         }
     }
