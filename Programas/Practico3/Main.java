@@ -6,10 +6,12 @@ import Practico3.tests.StackTest;
 public class Main {
     public static void main(String[] args) {
         StackTest test1 = new StackTest();
-        QueueTest test2 = new QueueTest();
+        QueueTest<Integer> test2 = new QueueTest<>(Integer.class);
+        QueueTest<String> test3 = new QueueTest<>(String.class);
+        QueueTest<Double> test4 = new QueueTest<>(Double.class);
 
-        test1.testStackInteger();
-        /*
+        /*test1.testStackInteger();
+        
         test1.testStackString(); 
         System.out.println(test1.isPalindrome("Anita Lava La Tina") ? "Expression is palindrome" : "Expression isn´t palindrome");
         System.out.println(test1.isMathematicExpression("(((((2 + 3) * 5) - 8))") ? "Expression is equilibrated" : "Expression isn´t equilibrated");
@@ -17,7 +19,10 @@ public class Main {
         test1.makeStackOfWords();
         System.out.println(test1.isBalancedExpression("((((3 + 2) * 5))") ? "Expression balanced" : "Expression isn´t balanced");*/
 
-        test2.testQueueInteger();
-        test2.testQueueString();
+        /* test2.testQueueInteger();
+        test2.testQueueString(); */
+        System.out.println(test2.createRandomQueue(5));
+        System.out.println(test3.createRandomQueue(5));
+        System.out.println(test4.createRandomQueue(5));
     }
 }

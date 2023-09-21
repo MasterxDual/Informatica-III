@@ -103,4 +103,21 @@ public class Queue <T> {
         this.front = -1;
         this.back = -1;
     }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append("[");
+        for (int i = 0; i < this.size; i++) {
+            sBuilder.append(array[i]);
+            sBuilder.append(" ");
+        }
+        sBuilder.deleteCharAt(sBuilder.length() - 1);
+        sBuilder.append("]");                    
+        return sBuilder.toString();
+    }
 }
