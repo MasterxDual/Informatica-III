@@ -36,8 +36,9 @@ public class Stack <T> {
         if(isFull()) {
             throw new StackIsFullException(this.size);
         }
-        this.array[this.index] = element;
-        this.index++;
+        /*this.array[this.index] = element;
+        this.index++;*/
+        this.array[this.index++] = element;
     }
 
      /**

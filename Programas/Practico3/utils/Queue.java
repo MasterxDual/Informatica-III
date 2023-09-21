@@ -45,8 +45,9 @@ public class Queue <T> {
         } else if(isEmpty()) {
             this.front++;
         }        
-        this.back++;
-        this.array[back] = element;
+        /*this.back++;
+        this.array[this.back] = element;*/
+        this.array[++this.back] = element;
     }
 
     /**
