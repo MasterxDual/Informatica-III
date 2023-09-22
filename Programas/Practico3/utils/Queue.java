@@ -15,6 +15,7 @@ public class Queue <T> {
      * Indice que indica el primer elemento que saldrá de la cola
      */
     private Integer front;
+
     /**
      * Indice que indica el ultimo elemento que ingresó a la cola
      */
@@ -108,6 +109,10 @@ public class Queue <T> {
         return this.size;
     }
 
+    public T[] getArray() {
+        return array;
+    }
+    
     @Override
     public String toString() {
         StringBuilder sBuilder = new StringBuilder();
