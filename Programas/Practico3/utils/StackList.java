@@ -6,10 +6,10 @@ public class StackList <T> {
     private Node<T> root = null;
 
     /**
-     * Agregar elemento a la pila
+     * Add a new element to the stack
      * 
      *
-     * @param element 
+     * @param element added
      */
     public void push(T element) {
         Node<T> newNode = new Node<>(element);
@@ -18,9 +18,9 @@ public class StackList <T> {
     }
 
     /**
-     * Borramos y retornamos el ùiltimo valor.
+     * Delete and returns last element
      * 
-     * @return
+     * @return last element (removed element)
      */
 
     public T pop() throws StackIsEmptyException {
@@ -33,9 +33,9 @@ public class StackList <T> {
     }
 
     /**
-     * Retornamos el últimos valor.
+     * Returns last element
      * 
-     * @return
+     * @return last element
      */
 
     public T top() throws StackIsEmptyException {
@@ -45,14 +45,25 @@ public class StackList <T> {
         return root.data;
     }
 
+    /**
+     * Verify if stack is empty
+     * @return true if empty, false otherwise
+     */
     public boolean isEmpty() {
         return this.root == null;
     }
 
+    /**
+     * Delete all elements of the stack
+     */
     public void makeEmpty() {
         this.root = null;
     }
 
+    /**
+     * Returns size of stack if isnt empty, otherwise returns 0 
+     * @return size of stack
+     */
     public int size() {
         int count = 0;
         Node<T> actual = this.root;
