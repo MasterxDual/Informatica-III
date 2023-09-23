@@ -34,6 +34,8 @@ public class Main {
         System.out.println("Cola ordenada de menor a mayor");
         System.out.println(test4.sortQueueDescending(originalQueue2));  */
 
-        test1.convertToBinary(2573); 
+        /* test1.convertToBinary(2573);  */
+        test4.testQueueListDouble();
+        test3.testQueueListString();
     }
 }

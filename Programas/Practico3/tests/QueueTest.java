@@ -3,6 +3,7 @@ package Practico3.tests;
 import Practico3.exceptions.QueueIsEmptyException;
 import Practico3.exceptions.QueueIsFullException;
 import Practico3.utils.Queue;
+import Practico3.utils.QueueList;
 
 import java.util.Random;
 
@@ -142,5 +143,58 @@ public class QueueTest<T extends Comparable<T>> {
             }
         }
         return array;
+    }
+
+    /*5. c. Prueba tu implementación utilizando diferentes operaciones y
+    elementos. */
+
+    public void testQueueListDouble() {
+        QueueList <Double> queue = new QueueList();
+
+        try {
+            queue.enqueue(10.42);
+            queue.enqueue(20.84);
+            queue.enqueue(30.168);
+            System.out.println(queue.dequeue());
+            System.out.println(queue.getFront());            
+            System.out.println(queue.isEmpty());
+            queue.makeEmpty();
+            System.out.println(queue.isEmpty());
+            queue.enqueue(40.336);
+            queue.enqueue(50.672);
+            queue.enqueue(60.73);
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue()); // QueueIsEmptyException
+        } catch (QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+    
+    }
+
+    public void testQueueListString() {
+        QueueList <String> queue = new QueueList();
+
+        try {
+            queue.enqueue("Hola");
+            queue.enqueue("Mundo");
+            System.out.println(queue.dequeue());
+            System.out.println(queue.getFront());            
+            System.out.println(queue.isEmpty());
+            queue.makeEmpty();
+            System.out.println(queue.isEmpty());
+            queue.enqueue("Hola");
+            queue.enqueue("Mundo");
+            queue.enqueue("Adios");
+            queue.enqueue("!!!");
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue()); // QueueIsEmptyException
+        } catch (QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
