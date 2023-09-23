@@ -4,7 +4,6 @@ import Practico3.exceptions.QueueIsEmptyException;
 import Practico3.exceptions.QueueIsFullException;
 import Practico3.utils.Queue;
 
-import java.lang.reflect.Array;
 import java.util.Random;
 
 public class QueueTest<T extends Comparable<T>> {
@@ -114,7 +113,7 @@ public class QueueTest<T extends Comparable<T>> {
         T[] orderedArray = (T[]) new Comparable[originalQueueSize]; 
 
         try {
-            orderedArray = bubbleSort(convertQueueToArray(queue)); //Se ordena utilizando el metodo burbuja al array que provino de la cola original, luego se almacena en orderedArray
+            orderedArray = bubbleSort(queue.getArray()); //Se ordena utilizando el metodo burbuja al array que provino de la cola original, luego se almacena en orderedArray
             for (int z = 0; z < originalQueueSize; z++) {
                 auxiliarQueue.enqueue(orderedArray[z]); //Agrega a la cola auxiliar los elementos del array ordenado previamente
             }
@@ -123,26 +122,6 @@ public class QueueTest<T extends Comparable<T>> {
         }
         return auxiliarQueue;
     }
-    
-    /**
-     * Convierte a la cola en un array listo para poder recorrerlo a traves de un indice
-     * @param queue queue ready to convert to array
-     * @return array that comes from the queue
-     */
-    @SuppressWarnings("unchecked")
-    public T[] convertQueueToArray(Queue<T> queue) {
-        int originalQueueSize = queue.getSize();
-        T[] array = (T[]) new Object[originalQueueSize];
-
-        try {
-            for (int s = 0; s < originalQueueSize; s++) {
-                    array[s] = queue.dequeue();
-            }
-        } catch (QueueIsEmptyException e) {
-            System.out.println(e.getMessage());
-        }
-        return array;
-    }
 
     /**
      * Metodo de ordenamiento de burbuja
@@ -150,7 +129,7 @@ public class QueueTest<T extends Comparable<T>> {
      * @param array unordered array
      * @return ordered array
      */
-    public <T extends Comparable<T>> T[] bubbleSort(T[] array) { 
+    public T[] bubbleSort(T[] array) { 
         int n = array.length;
 
         for (int i = 0; i < n - 1; i++) {

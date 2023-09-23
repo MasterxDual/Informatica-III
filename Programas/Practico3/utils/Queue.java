@@ -3,7 +3,7 @@ package Practico3.utils;
 import Practico3.exceptions.QueueIsEmptyException;
 import Practico3.exceptions.QueueIsFullException;
 
-public class Queue <T> {
+public class Queue <U extends Comparable <U>> {
     /*4. Implementación de una Cola:
     a. Crea una clase que represente una cola utilizando un arreglo.
     b. Implementa métodos para enqueue (agregar un elemento al final),
@@ -21,7 +21,7 @@ public class Queue <T> {
      */
     private Integer back;
     private Integer size;
-    private T[] array;
+    private U[] array;
 
     
     /** Constructor de la cola
@@ -32,7 +32,7 @@ public class Queue <T> {
     public Queue(Integer size) {
         makeEmpty();
         this.size = size;
-        this.array = (T[]) new Object[size];
+        this.array = (U[]) new Comparable[size];
     }
 
     /** Agrega un elemento a la cola (el que queda en el back)
@@ -40,7 +40,7 @@ public class Queue <T> {
      * @param element added element
      * @throws QueueIsFullException
      */
-    public void enqueue(T element) throws QueueIsFullException {
+    public void enqueue(U element) throws QueueIsFullException {
         if(isFull()) {
             throw new QueueIsFullException(size);
         } else if(isEmpty()) {
@@ -56,11 +56,11 @@ public class Queue <T> {
      * @return eliminated element
      * @throws QueueIsEmptyException
      */
-    public T dequeue() throws QueueIsEmptyException {
+    public U dequeue() throws QueueIsEmptyException {
         if(isEmpty()) {
             throw new QueueIsEmptyException();
         }
-        T returnValue = array[this.front];
+        U returnValue = array[this.front];
         if(this.front.equals(this.back)) {
             this.front = this.back = -1;
         } else {
@@ -74,7 +74,7 @@ public class Queue <T> {
      * @return first element
      * @throws QueueIsEmptyException
      */
-    public T getFront() throws QueueIsEmptyException {
+    public U getFront() throws QueueIsEmptyException {
         if(isEmpty()) {
             throw new QueueIsEmptyException();
         }
@@ -109,7 +109,7 @@ public class Queue <T> {
         return this.size;
     }
 
-    public T[] getArray() {
+    public U[] getArray() {
         return array;
     }
     

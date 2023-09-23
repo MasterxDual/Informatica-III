@@ -7,11 +7,11 @@ import Practico3.utils.Queue;
 public class Main {
     public static void main(String[] args) {
         StackTest test1 = new StackTest();
-        QueueTest<Integer> test2 = new QueueTest<>(Integer.class);
+        QueueTest<String> test2 = new QueueTest<>(String.class);
         QueueTest<String> test3 = new QueueTest<>(String.class);
         QueueTest<Double> test4 = new QueueTest<>(Double.class);
-        Queue<Integer> originalQueue = test2.createRandomQueue(5);
-
+        Queue<String> originalQueue1 = test2.createRandomQueue(5);
+        Queue<Double> originalQueue2 = test4.createRandomQueue(5);
         /*test1.testStackInteger();
         
         test1.testStackString(); 
@@ -27,9 +27,14 @@ public class Main {
         System.out.println(test3.createRandomQueue(5));
         System.out.println(test4.createRandomQueue(5));*/
 
-        System.out.println("Cola original desordenada: " + originalQueue);
+        System.out.println("Cola original desordenada: " + originalQueue1);
         System.out.println("Cola ordenada de menor a mayor");
-        System.out.println(test2.sortQueueDescending(originalQueue));
+        System.out.println(test2.sortQueueDescending(originalQueue1));
+        System.out.println("Cola original desordenada: " + originalQueue2);
+        System.out.println("Cola ordenada de menor a mayor");
+        System.out.println(test4.sortQueueDescending(originalQueue2)); 
+
+        /* test1.convertToBinary(5); */
 
 
     }
