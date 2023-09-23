@@ -229,4 +229,40 @@ public class StackTest {
             return false;
         }
     }
+
+    /*4. Conversión de Decimal a Binario:
+    a. Crea un programa que convierta un número decimal a su
+    representación en binario utilizando una pila. Puedes usar el algoritmo
+    de división sucesiva por 2. */
+    public void convertToBinary(Integer number) {
+        StackList <Integer> stackList = new StackList<>();
+
+        try {
+            /* Manera basica:
+            if(number == 1) {
+                stackList.push(1);
+            } else if(number % 2 == 0) {
+                stackList.push(0);
+                convertToBinary(number / 2);
+            } else if(number % 2 != 0) {
+                stackList.push(1);
+                convertToBinary(number / 2);
+            } 
+            System.out.print(stackList.pop() + " ");
+            */
+            //Manera optima:
+            if(number % 2 == 0) {
+                stackList.push(0);
+                convertToBinary(number / 2);
+            } else if(number % 2 != 0) {
+                stackList.push(1);
+                if(number != 1) {
+                    convertToBinary(number / 2);
+                }
+            }
+            System.out.print(stackList.pop() + " ");
+        } catch (StackIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

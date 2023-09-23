@@ -12,8 +12,8 @@ public class Main {
         QueueTest<Double> test4 = new QueueTest<>(Double.class);
         Queue<String> originalQueue1 = test2.createRandomQueue(5);
         Queue<Double> originalQueue2 = test4.createRandomQueue(5);
-        /*test1.testStackInteger();
-        
+        /*
+        test1.testStackInteger();
         test1.testStackString(); 
         System.out.println(test1.isPalindrome("Anita Lava La Tina") ? "Expression is palindrome" : "Expression isn´t palindrome");
         System.out.println(test1.isMathematicExpression("(((((2 + 3) * 5) - 8))") ? "Expression is equilibrated" : "Expression isn´t equilibrated");
@@ -27,15 +27,13 @@ public class Main {
         System.out.println(test3.createRandomQueue(5));
         System.out.println(test4.createRandomQueue(5));*/
 
-        System.out.println("Cola original desordenada: " + originalQueue1);
+        /* System.out.println("Cola original desordenada: " + originalQueue1);
         System.out.println("Cola ordenada de menor a mayor");
         System.out.println(test2.sortQueueDescending(originalQueue1));
         System.out.println("Cola original desordenada: " + originalQueue2);
         System.out.println("Cola ordenada de menor a mayor");
-        System.out.println(test4.sortQueueDescending(originalQueue2)); 
+        System.out.println(test4.sortQueueDescending(originalQueue2));  */
 
-        /* test1.convertToBinary(5); */
-
-
+        test1.convertToBinary(2573); 
     }
 }
