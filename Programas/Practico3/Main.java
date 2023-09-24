@@ -3,6 +3,7 @@ package Practico3;
 import Practico3.tests.QueueTest;
 import Practico3.tests.StackTest;
 import Practico3.utils.Queue;
+import Practico3.utils.QueueList;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +13,10 @@ public class Main {
         QueueTest<Double> test4 = new QueueTest<>(Double.class);
         Queue<Integer> originalQueue1 = test2.createRandomQueue(5);
         Queue<Double> originalQueue2 = test4.createRandomQueue(5);
+        QueueList<Integer> originalQueue3 = test2.createRandomQueueList(5);
+        QueueList<Double> originalQueue4 = test4.createRandomQueueList(5);
+        QueueList<String> originalQueue5 = test3.createRandomQueueList(5);
+
         /*
         test1.testStackInteger();
         test1.testStackString(); 
@@ -32,14 +37,25 @@ public class Main {
         System.out.println(test2.sortQueueDescending(originalQueue1));
         System.out.println("Cola original desordenada: " + originalQueue2);
         System.out.println("Cola ordenada de menor a mayor");
-        System.out.println(test4.sortQueueDescending(originalQueue2));   */
+        System.out.println(test4.sortQueueDescending(originalQueue2));  */
 
         /* test1.convertToBinary(2573);  */
 
         /* test3.testQueueListString();
         test4.testQueueListDouble(); */
 
-        System.out.println("Usted esta por comenzar a crear una cola enlazada con numeros enteros:");
-        System.out.println("La suma de todos los elementos de la cola es igual a "+ test4.sumOfQueueNumbers(test4.createQueueListByInput()));
+        /* System.out.println("Usted esta por comenzar a crear una cola enlazada con numeros enteros:");
+        System.out.println("La suma de todos los elementos de la cola es igual a "+ test4.sumOfQueueNumbers(test4.createQueueListByInput())); */
+
+        /* System.out.println("Cola original desordenada: ");
+        test2.printQueue(originalQueue3);
+        System.out.println("Cola ordenada de mayor a menor");
+        test2.sortQueueListAscending(originalQueue3);
+        test2.printQueue(originalQueue3);
+        System.out.println("Cola original desordenada: ");
+        test3.printQueue(originalQueue5);
+        System.out.println("Cola ordenada de mayor a menor");
+        test3.sortQueueListAscending(originalQueue5);
+        test3.printQueue(originalQueue5);  */
     }
 }

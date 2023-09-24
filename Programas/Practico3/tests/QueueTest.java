@@ -2,6 +2,7 @@ package Practico3.tests;
 
 import Practico3.exceptions.QueueIsEmptyException;
 import Practico3.exceptions.QueueIsFullException;
+import Practico3.utils.Node;
 import Practico3.utils.Queue;
 import Practico3.utils.QueueList;
 
@@ -126,7 +127,7 @@ public class QueueTest<T extends Comparable<T>> {
     }
 
     /**
-     * Metodo de ordenamiento de burbuja
+     * Metodo de ordenamiento de burbuja en orden ascendente
      * @param <T> generic type
      * @param array unordered array
      * @return ordered array
@@ -136,7 +137,7 @@ public class QueueTest<T extends Comparable<T>> {
 
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
-                if (array[j].compareTo(array[j + 1]) > 0) {
+                if (array[j].compareTo(array[j + 1]) > 0) { 
                     T temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
@@ -220,6 +221,11 @@ public class QueueTest<T extends Comparable<T>> {
         return queue;
     }
 
+    /**
+     * Sums all the elements of a queue
+     * @param queue to be added
+     * @return result of the sum of all the elements
+     */
     public double sumOfQueueNumbers(QueueList<Double> queue) {
     double sum = 0;
     int size;
@@ -234,4 +240,80 @@ public class QueueTest<T extends Comparable<T>> {
         }
         return sum;
     }
+
+    /*7. Ordenamiento de Cola
+    a. Escribe un programa que ordene una cola de números enteros de
+    forma ascendente. Puedes usar una pila como estructura auxiliar. */
+    /**
+     * Uses the sorting algorithm of selection sort implemented in a queue list to order the original queue
+     * @param queue to be ordered
+     */
+    public void sortQueueListAscending(QueueList<T> queue) {
+        try {
+            Node<T> current = queue.getFrontNode();
+            int size = queue.getSize();
+            Node<T> max;
+            Node<T> temp;
+    
+            for (int i = 0; i < size - 1; i++) {
+                max = current;
+                temp = current.getNext();
+                while (temp != null) {
+                    if (temp.getData().compareTo(max.getData()) > 0) {
+                        max = temp;
+                    }
+                    temp = temp.getNext();
+                }
+    
+                T maxValue = max.getData();
+                max.setData(current.getData());
+                current.setData(maxValue);
+        
+                current = current.getNext();
+            }
+            
+        } catch (QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+    } 
+
+    /**
+     * Prints all elements of the queue list
+     * @param queue to be printed
+     */
+    public void printQueue(QueueList<T> queue) {
+        try {
+            Node<T> current = queue.getFrontNode();
+            while (current != null) {
+                System.out.print(current.getData() + " ");
+                current = current.getNext();
+            }
+            System.out.println();
+        } catch (QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * Creates a random queue list
+     * @param size queue's size
+     * @return created queue
+     */
+    public QueueList<T> createRandomQueueList(int size) {
+        QueueList<T> queue = new QueueList<>();
+
+        for (int i = 0; i < size; i++) {
+            if (type.equals(Integer.class)) {
+                queue.enqueue(type.cast(random.nextInt(100))); // Generate a random integer between 0 and 99
+            } else if (type.equals(Double.class)) {
+                queue.enqueue(type.cast(random.nextDouble(100))); // Generate a random integer between 0 and 99
+            } else if (type.equals(String.class)) {
+                queue.enqueue(type.cast(createRandomString()));
+            }
+        }
+        
+        return queue;
+    }
+
+
 }

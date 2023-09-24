@@ -2,10 +2,9 @@ package Practico3.utils;
 
 import Practico3.exceptions.QueueIsEmptyException;
 
-public class QueueList<T> {
-    private Node<T> front;
-    private Node<T> back;
-    private int size;
+public class QueueList<U extends Comparable<U>> {
+    private Node<U> front;
+    private Node<U> back;
 
     /*5. Implementación de una Cola con lista:
     a. Crea una clase que represente una Cola y Nodo.
@@ -26,8 +25,8 @@ public class QueueList<T> {
      * Adds a new element to the queue, enters through the back.
      * @param element added
      */
-    public void enqueue(T element) {
-        Node<T> newNode = new Node<>(element);
+    public void enqueue(U element) {
+        Node<U> newNode = new Node<>(element);
         if(isEmpty()) {
             this.front = this.back = newNode;
             /*  this.front = newNode;
@@ -45,11 +44,11 @@ public class QueueList<T> {
      * @return element removed
      * @throws QueueIsEmptyException
      */
-    public T dequeue() throws QueueIsEmptyException {
+    public U dequeue() throws QueueIsEmptyException {
         if(isEmpty()) {
             throw new QueueIsEmptyException();
         }
-        T tempData = getFront();
+        U tempData = getFront();
         this.front = this.front.next;
         if(this.front == null) {
             this.back = null;
@@ -62,11 +61,23 @@ public class QueueList<T> {
      * @return first element (front element)
      * @throws QueueIsEmptyException
      */
-    public T getFront() throws QueueIsEmptyException {
+    public U getFront() throws QueueIsEmptyException {
         if(isEmpty()) {
             throw new QueueIsEmptyException();
         }
         return this.front.data;
+    }
+
+    /**
+     * Returns the first node of the queue
+     * @return first node (front node)
+     * @throws QueueIsEmptyException
+     */
+    public Node<U> getFrontNode() throws QueueIsEmptyException {
+        if(isEmpty()) {
+            throw new QueueIsEmptyException();
+        }
+        return this.front;
     }
 
     /**
@@ -85,16 +96,17 @@ public class QueueList<T> {
     }
 
     public int getSize() throws QueueIsEmptyException {
+        int size;
         if(isEmpty()) {
             throw new QueueIsEmptyException();
         }
-        Node<T> temp = this.front;
-        this.size = 1;
+        Node<U> temp = this.front;
+        size = 1;
 
         while(temp.next != null) {
             temp = temp.next;
-            this.size++;    
+            size++;    
         }
-        return this.size;
+        return size;
     }
 }
