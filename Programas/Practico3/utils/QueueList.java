@@ -5,6 +5,7 @@ import Practico3.exceptions.QueueIsEmptyException;
 public class QueueList<T> {
     private Node<T> front;
     private Node<T> back;
+    private int size;
 
     /*5. Implementación de una Cola con lista:
     a. Crea una clase que represente una Cola y Nodo.
@@ -81,5 +82,19 @@ public class QueueList<T> {
      */
     public void makeEmpty() {
         this.back = this.front = null;
+    }
+
+    public int getSize() throws QueueIsEmptyException {
+        if(isEmpty()) {
+            throw new QueueIsEmptyException();
+        }
+        Node<T> temp = this.front;
+        this.size = 1;
+
+        while(temp.next != null) {
+            temp = temp.next;
+            this.size++;    
+        }
+        return this.size;
     }
 }
