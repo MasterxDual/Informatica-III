@@ -5,10 +5,11 @@ import Practico3.exceptions.QueueIsFullException;
 import Practico3.utils.Queue;
 import Practico3.utils.QueueList;
 
+import java.util.Locale;
 import java.util.Random;
+import java.util.Scanner;
 
 public class QueueTest<T extends Comparable<T>> {
-    private Queue<T> queue;
     private Class<T> type;
     private final Random random = new Random();
 
@@ -17,7 +18,7 @@ public class QueueTest<T extends Comparable<T>> {
     }
 
     public Queue<T> createRandomQueue(int size) {
-        queue = new Queue<>(size);
+        Queue<T> queue = new Queue<>(size);
 
         try {
             for (int i = 0; i < size; i++) {
@@ -149,8 +150,9 @@ public class QueueTest<T extends Comparable<T>> {
     elementos. */
 
     public void testQueueListDouble() {
-        QueueList <Double> queue = new QueueList();
+        QueueList <Double> queue = new QueueList<>();
 
+        
         try {
             queue.enqueue(10.42);
             queue.enqueue(20.84);
@@ -174,7 +176,7 @@ public class QueueTest<T extends Comparable<T>> {
     }
 
     public void testQueueListString() {
-        QueueList <String> queue = new QueueList();
+        QueueList <String> queue = new QueueList<>();
 
         try {
             queue.enqueue("Hola");
@@ -196,5 +198,40 @@ public class QueueTest<T extends Comparable<T>> {
         } catch (QueueIsEmptyException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    /*6. Cola de Números
+    a. Implementa una cola que almacene números enteros. Crea un
+    programa que solicite al usuario ingresar números y los encole. Luego,
+    desencola y suma todos los números. */
+    /**
+     * Creates a new linked queue by input numbers
+     * @return queue created
+     */
+    public QueueList <Double> createQueueListByInput() {
+        Scanner scanner = new Scanner(System.in).useLocale(Locale.US); //For using a point instead a coma in the numbers with decimals
+        QueueList <Double> queue = new QueueList<>();
+
+        do {
+            System.out.println("Ingrese un numero");
+            queue.enqueue(scanner.nextDouble());
+            System.out.println("¿Desea seguir ingresando numeros? (1. Si 0. No)");
+        } while(scanner.nextInt() != 0);
+        return queue;
+    }
+
+    public double sumOfQueueNumbers(QueueList<Double> queue) {
+    double sum = 0;
+    int size;
+    
+    try {
+        size = queue.getSize();
+        for (int z = 1; z <= size ; z++) {
+                sum = sum + queue.dequeue();
+            }
+        } catch (QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+        return sum;
     }
 }
