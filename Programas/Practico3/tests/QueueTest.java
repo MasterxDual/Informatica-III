@@ -315,5 +315,29 @@ public class QueueTest<T extends Comparable<T>> {
         return queue;
     }
 
+    /*8. Verificación de Palíndromos con cola
+    a. Desarrolla un programa que verifique si una palabra o frase es un
+    palíndromo (se lee igual de izquierda a derecha que de derecha a
+    izquierda), ignorando los espacios y signos de puntuación. */
+    public boolean verifyPalindrome(String string) {
+        string = string.toLowerCase().replace(" ", "");
+        int size = string.length();
+        QueueList<Character> queueChar = new QueueList<>();
+
+        try {
+            for (int z = 0; z < size; z++) {
+                queueChar.enqueue(string.charAt(z));
+            }
+            for (int s = 0; s < size; s++) {
+                if(!queueChar.dequeue().equals(string.charAt(size - 1 - s))) {
+                    return false;
+                }
+            }
+        } catch(QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
 
 }

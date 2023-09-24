@@ -57,5 +57,7 @@ public class Main {
         System.out.println("Cola ordenada de mayor a menor");
         test3.sortQueueListAscending(originalQueue5);
         test3.printQueue(originalQueue5);  */
+
+        System.out.println(test2.verifyPalindrome("A mi loca Colima"));
     }
 }
