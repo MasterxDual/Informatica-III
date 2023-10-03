@@ -21,7 +21,7 @@ public class TreeNode <T> {
      * @return value from tree node
      */
     public T getValue() {
-        return value;
+        return this.value;
     }
 
     public void setValue(T value) {
@@ -33,7 +33,7 @@ public class TreeNode <T> {
      * @return left node sub-tree
      */
     public TreeNode<T> getLeftNode() {
-        return leftNode;
+        return this.leftNode;
     }
 
     /**
@@ -49,7 +49,7 @@ public class TreeNode <T> {
      * @return rigth node sub-tree
      */
     public TreeNode<T> getRightNode() {
-        return rightNode;
+        return this.rightNode;
     }
     
     /**
@@ -58,5 +58,9 @@ public class TreeNode <T> {
      */
     public void setRightNode(TreeNode<T> rightNode) {
         this.rightNode = rightNode;
+    }
+
+    public void printValueNode() {
+        System.out.println(this.value + " ");
     }
 }
