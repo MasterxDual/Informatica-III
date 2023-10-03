@@ -1,9 +1,9 @@
 package Practico3.utils;
 
 public class TreeNode <T> {
-    protected T value;
-    protected TreeNode<T> leftNode;
-    protected TreeNode<T> rightNode;
+    T value;
+    TreeNode<T> leftNode;
+    TreeNode<T> rightNode;
 
     public TreeNode(T value) {
         this.value = value;
