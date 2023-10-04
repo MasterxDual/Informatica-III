@@ -1,7 +1,9 @@
 package Practico3;
 
+import Practico3.tests.BinaryTreeTest;
 import Practico3.tests.QueueTest;
 import Practico3.tests.StackTest;
+import Practico3.utils.BinaryTree;
 import Practico3.utils.Queue;
 import Practico3.utils.QueueList;
 
@@ -16,7 +18,9 @@ public class Main {
         QueueList<Integer> originalQueue3 = test2.createRandomQueueList(5);
         QueueList<Double> originalQueue4 = test4.createRandomQueueList(5);
         QueueList<String> originalQueue5 = test3.createRandomQueueList(5);
-
+        BinaryTreeTest<Integer> treeTest1 = new BinaryTreeTest<>();
+        BinaryTree<Integer> tree1 = new BinaryTree<>();
+        
         /*
         test1.testStackInteger();
         test1.testStackString(); 
@@ -58,6 +62,9 @@ public class Main {
         test3.sortQueueListAscending(originalQueue5);
         test3.printQueue(originalQueue5);  */
 
-        System.out.println(test2.verifyPalindrome("A mi loca Colima"));
+        //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
+
+        tree1.inOrder(treeTest1.createBinaryTree().getRoot());
+
     }
 }
