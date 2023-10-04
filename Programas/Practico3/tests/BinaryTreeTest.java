@@ -6,7 +6,7 @@ import Practico3.utils.BinaryTree;
 import Practico3.utils.TreeNode;
 
 public class BinaryTreeTest <T extends Comparable<T>> {
-    public BinaryTree<Integer> createBinaryTree() {
+    public BinaryTree<Integer> createRandomBinaryTree() {
         BinaryTree<Integer> tree = new BinaryTree<>();
         TreeNode<Integer> nodeA;
         TreeNode<Integer> nodeB;

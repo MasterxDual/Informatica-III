@@ -64,7 +64,7 @@ public class Main {
 
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
-        tree1.inOrder(treeTest1.createBinaryTree().getRoot());
+        tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
 
     }
 }
