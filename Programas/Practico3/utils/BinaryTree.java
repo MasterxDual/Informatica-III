@@ -82,5 +82,18 @@ public class BinaryTree <U> {
             root.printValueNode();
         }
     }*/
+
+    /**
+     * Calculates and returns the total number of nodes of a binary tree
+     * @param root of the binary tree
+     * @return total number of nodes
+     */
+    public int getNumNodes(TreeNode<U> root) {
+        if(root == null) {
+            return 0;
+        } else {
+            return 1 + getNumNodes(root.getLeftNode()) + getNumNodes(root.getRightNode());
+        }
+    }
     
 }

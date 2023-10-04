@@ -65,6 +65,6 @@ public class Main {
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
         tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
-
+        System.out.println("Numero de nodos del arbol creado es igual a " + tree1.getNumNodes(treeTest1.createRandomBinaryTree().getRoot()));
     }
 }
