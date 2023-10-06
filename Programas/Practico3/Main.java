@@ -68,11 +68,12 @@ public class Main {
 
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
-        /* tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
-        System.out.println("Numero de nodos del arbol creado es igual a " + tree1.getNumNodes(treeTest1.createRandomBinaryTree().getRoot())); */
+        tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
+        System.out.println("Numero de nodos del arbol creado es igual a " + tree1.getNumNodes(treeTest1.createRandomBinaryTree().getRoot()));
         
-        tree2.inOrder(treeTest2.createRandomBinarySearchTree().getRoot());
-        System.out.println("Numero de nodos del arbol creado es igual a " + tree2.getNumNodes(treeTest2.createRandomBinarySearchTree().getRoot()));
-        
+        /* tree2.inOrder(treeTest2.createRandomBinarySearchTree().getRoot());
+        System.out.println("Numero de nodos del arbol creado es igual a " + tree2.getNumNodes(treeTest2.createRandomBinarySearchTree().getRoot())); */
+
+        System.out.println("Profundidad o altura del arbol es igual a " + tree1.depth(treeTest1.createRandomBinaryTree().getRoot()));
     }
 }

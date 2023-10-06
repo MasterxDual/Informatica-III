@@ -95,5 +95,31 @@ public class BinaryTree <U> {
             return 1 + getNumNodes(root.getLeftNode()) + getNumNodes(root.getRightNode());
         }
     }
+
+    //Bottom-up Solution
+    public int depth(TreeNode<U> root) {
+        if(root == null) {
+            return 0;
+        } 
+        int leftDepth = depth(root.leftNode);
+        int rightDepth = depth(root.rightNode);
+
+        return Math.max(leftDepth, rightDepth) + 1;
+    } 
+ 
+    /*  Other solution for depth (Top-down Solution):
+    int answer;
+    public void depth(TreeNode<U> root, int depth) {
+        if(root == null) {
+            return;
+        }
+        if(root.leftNode == null && root.rightNode == null) {
+            answer = Math.max(answer, depth);
+        }
+        depth(root.leftNode, depth + 1);
+        depth(root.rightNode, depth + 1);
+    } */
     
+     
 }
+
