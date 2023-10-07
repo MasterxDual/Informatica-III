@@ -96,7 +96,25 @@ public class BinaryTree <U> {
         }
     }
 
-    //Bottom-up Solution
+
+    public int depth(TreeNode<U> root) {
+        int leftMax = 0; 
+        int rightMax = 0;
+        
+        if(root == null) {
+            return 0;
+        } 
+        if(root.leftNode != null) {
+            leftMax = depth(root.leftNode);
+        }
+        if(root.rightNode != null) {
+            rightMax = depth(root.rightNode);
+        } 
+
+        return Math.max(leftMax, rightMax) + 1;
+    }
+
+   /*  //Bottom-up Solution
     public int depth(TreeNode<U> root) {
         if(root == null) {
             return 0;
@@ -106,7 +124,7 @@ public class BinaryTree <U> {
 
         return Math.max(leftDepth, rightDepth) + 1;
     } 
- 
+  */
     /*  Other solution for depth (Top-down Solution):
     int answer;
     public void depth(TreeNode<U> root, int depth) {
