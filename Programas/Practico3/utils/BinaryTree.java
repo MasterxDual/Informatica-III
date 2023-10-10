@@ -96,7 +96,11 @@ public class BinaryTree <U> {
         }
     }
 
-
+    /**Calculates the depth (profundidad o cantidad de niveles) of the tree.
+     * This is the rustic method (coded by me). The following similar methods were extracted from the internet.
+     * @param root of the tree
+     * @return amount of levels of the tree (depth)
+     */
     public int depth(TreeNode<U> root) {
         int leftMax = 0; 
         int rightMax = 0;
