@@ -142,6 +142,24 @@ public class BinaryTree <U> {
         depth(root.rightNode, depth + 1);
     } */
     
-     
+    /** Prints all leaves nodes (nodos hoja) of the tree.
+     * @param root of the tree who have the leaves nodes to be printed
+     */
+    public void printLeaves(TreeNode<U> root) {
+        if(root == null) {
+            return;
+        }
+        if(root.leftNode == null && root.rightNode == null) {
+            System.out.print(root.value + ", ");
+            return;
+        }
+        if(root.leftNode != null) {
+            printLeaves(root.leftNode);
+        } 
+        if(root.rightNode != null) {
+            printLeaves(root.rightNode);
+        }
+
+    }
 }
 

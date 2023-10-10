@@ -75,5 +75,8 @@ public class Main {
         System.out.println("Numero de nodos del arbol creado es igual a " + tree2.getNumNodes(treeTest2.createRandomBinarySearchTree().getRoot())); */
 
         System.out.println("Profundidad o altura del arbol es igual a " + tree1.depth(treeTest1.createRandomBinaryTree().getRoot()));
+
+        System.out.println("Nodos hoja de otro arbol creado:");
+        tree1.printLeaves(treeTest1.createRandomBinaryTree().getRoot());
     }
 }
