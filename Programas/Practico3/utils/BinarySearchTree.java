@@ -1,6 +1,7 @@
 package Practico3.utils;
 
 import Practico3.exceptions.DuplicateItemException;
+import Practico3.exceptions.ItemNotFoundException;
 
 public class BinarySearchTree<U extends Comparable<U>> extends BinaryTree <U> {
     public BinarySearchTree() {
@@ -66,5 +67,22 @@ public class BinarySearchTree<U extends Comparable<U>> extends BinaryTree <U> {
             }
         }
         return root;
+    }
+
+    /**
+     * Removes minimum item from a subtree
+     * @param root the node that roots the tree
+     * @return the new root
+     * @throws ItemNotFoundException if root is empty
+     */
+    public TreeNode<U> removeMin(TreeNode<U> root) throws ItemNotFoundException {
+        if(root == null) {
+            throw new ItemNotFoundException();
+        } else if(root.leftNode != null) {
+            root.leftNode = removeMin(root.leftNode);
+            return root;
+        } else {
+            return root.rightNode;
+        }
     }
 }
