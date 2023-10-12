@@ -53,4 +53,18 @@ public class BinarySearchTree<U extends Comparable<U>> extends BinaryTree <U> {
         return root;
 
     }
+
+    /**
+     * Finds the smallest item in a subtree
+     * @param root of the tree
+     * @return minimun node of the tree
+     */
+    public TreeNode<U> findMin(TreeNode<U> root) {
+        if(root != null) {
+            while(root.leftNode != null) {
+                root = root.leftNode;
+            }
+        }
+        return root;
+    }
 }
