@@ -1,5 +1,6 @@
 package Practico3;
 
+import Practico3.exceptions.ItemNotFoundException;
 import Practico3.tests.BinarySearchTreeTest;
 import Practico3.tests.BinaryTreeTest;
 import Practico3.tests.QueueTest;
@@ -22,8 +23,10 @@ public class Main {
         QueueList<String> originalQueue5 = test3.createRandomQueueList(5);
         BinaryTreeTest<Integer> treeTest1 = new BinaryTreeTest<>();
         BinaryTree<Integer> tree1 = new BinaryTree<>();
-        BinarySearchTree<Double> tree2 = new BinarySearchTree<>();
-        BinarySearchTreeTest<Double> treeTest2 = new BinarySearchTreeTest();
+        BinarySearchTree<Integer> tree2 = new BinarySearchTree<>();
+        BinarySearchTreeTest<Integer> treeTest2 = new BinarySearchTreeTest();
+        BinarySearchTree<Double> tree3 = new BinarySearchTree<>();
+        BinarySearchTreeTest<Double> treeTest3 = new BinarySearchTreeTest();
         
         /*
         test1.testStackInteger();
@@ -68,15 +71,34 @@ public class Main {
 
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
-        tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
-        System.out.println("Numero de nodos del arbol creado es igual a " + tree1.getNumNodes(treeTest1.createRandomBinaryTree().getRoot()));
+        /* tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
+        System.out.println("Numero de nodos del arbol creado es igual a " + tree1.getNumNodes(treeTest1.createRandomBinaryTree().getRoot())); */
         
-        /* tree2.inOrder(treeTest2.createRandomBinarySearchTree().getRoot());
-        System.out.println("Numero de nodos del arbol creado es igual a " + tree2.getNumNodes(treeTest2.createRandomBinarySearchTree().getRoot())); */
+        /* tree3.inOrder(treeTest3.createRandomBinarySearchTree().getRoot());
+        System.out.println("Numero de nodos del arbol creado es igual a " + tree3.getNumNodes(treeTest3.createRandomBinarySearchTree().getRoot())); */
 
-        System.out.println("Profundidad o altura del arbol es igual a " + tree1.depth(treeTest1.createRandomBinaryTree().getRoot()));
+        /* System.out.println("Profundidad o altura del arbol es igual a " + tree1.depth(treeTest1.createRandomBinaryTree().getRoot()));
 
         System.out.println("Nodos hoja de otro arbol creado:");
-        tree1.printLeaves(treeTest1.createRandomBinaryTree().getRoot());
+        tree1.printLeaves(treeTest1.createRandomBinaryTree().getRoot()); */
+
+        BinarySearchTree<Integer> treeA = treeTest2.createBinarySearchTree();
+        tree2.inOrder(treeA.getRoot());
+        System.out.println("Numero de nodos del arbol creado es igual a " + treeA.getNumNodes(treeA.getRoot()));
+        System.out.println("Numero minimo del arbol: " + tree2.findMin(treeA.getRoot()).getValue());
+        try {
+            System.out.println("Minimum node eliminated:");
+            tree2.removeMin(treeA.getRoot());
+            tree2.inOrder(treeA.getRoot());
+            System.out.println("Node 30 eliminated:");
+            tree2.dtree(treeA.getRoot(), 30);
+            tree2.inOrder(treeA.getRoot());
+            System.out.println("Node 20 eliminated:");
+            tree2.dtree(treeA.getRoot(), 20);
+            tree2.inOrder(treeA.getRoot());
+            tree2.dtree(treeA.getRoot(), 20);
+        } catch (ItemNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

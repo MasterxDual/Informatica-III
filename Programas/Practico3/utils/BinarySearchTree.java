@@ -85,4 +85,28 @@ public class BinarySearchTree<U extends Comparable<U>> extends BinaryTree <U> {
             return root.rightNode;
         }
     }
+
+    /**
+     * Remove a node from a subtree.
+     * @param root the node that roots the tree.
+     * @param value the item to remove.
+     * @return the new root.
+     * @throws ItemNotFoundException if value is not found.
+     */
+    public TreeNode<U> dtree(TreeNode<U> root, U value) throws ItemNotFoundException {
+        if(root == null) {
+            throw new ItemNotFoundException(value.toString());
+        } else if(value.compareTo(root.getValue()) < 0) {
+            root.leftNode = dtree(root.leftNode, value);
+        } else if (value.compareTo(root.getValue()) > 0) {
+            root.rightNode = dtree(root.rightNode, value);
+        } else if(root.leftNode != null && root.rightNode != null) {
+            root.setValue(findMin(root.rightNode).getValue());
+            root.rightNode = removeMin(root.rightNode);
+        } else {
+            root = (root.leftNode != null) ? root.leftNode : root.rightNode;
+        }
+
+        return root;
+    }
 }
