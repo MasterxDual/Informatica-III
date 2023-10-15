@@ -57,15 +57,14 @@ public class BinaryTree <U> {
      * en tercer y ultimo lugar recorre el subarbol derecho en preorden (D).
      * @param root of the binary tree
      */
-    /*
-    public void preOrder(TreeNode<U> root) {
+    /* public void preOrder(TreeNode<U> root) {
         //Caso base: que el subarbol este vacio (root == null)
         if(root != null) {
             root.printValueNode();
             preOrder(root.getLeftNode());
             preOrder(root.getRightNode());
         }
-    }*/ 
+    }  */
     
     /** (IDN)
      * Recorre el arbol de manera postOrder, el nodo raiz se procesa despues de que los dos subarboles se hayan procesado.
@@ -160,6 +159,21 @@ public class BinaryTree <U> {
             printLeaves(root.rightNode);
         }
 
+    }
+
+    /**
+     * Prints a binary tree with the sequence requested from the guide 6 exercise 2
+     * @param root of the binary tree
+     */
+    public void printTree(TreeNode<U> root) {
+        //Caso base: que el subarbol esté vacío (root == null)
+        System.out.println(root.getValue());
+        if(root.leftNode != null) {
+            printTree(root.leftNode);
+        }
+        if(root.rightNode != null) {
+            printTree(root.rightNode);
+        }
     }
 }
 

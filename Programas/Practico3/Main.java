@@ -82,7 +82,7 @@ public class Main {
         System.out.println("Nodos hoja de otro arbol creado:");
         tree1.printLeaves(treeTest1.createRandomBinaryTree().getRoot()); */
 
-        BinarySearchTree<Integer> treeA = treeTest2.createBinarySearchTree();
+        /* BinarySearchTree<Integer> treeA = treeTest2.createBinarySearchTree();
         tree2.inOrder(treeA.getRoot());
         System.out.println("Numero de nodos del arbol creado es igual a " + treeA.getNumNodes(treeA.getRoot()));
         System.out.println("Numero minimo del arbol: " + tree2.findMin(treeA.getRoot()).getValue());
@@ -99,6 +99,10 @@ public class Main {
             tree2.dtree(treeA.getRoot(), 20);
         } catch (ItemNotFoundException e) {
             System.out.println(e.getMessage());
-        }
+        } */
+
+        BinaryTree<Integer> treeB = treeTest1.createBinaryTree();
+        System.out.println("Profundidad del arbol es igual a " + tree1.depth(treeB.getRoot()));
+        tree1.printTree(treeB.getRoot());
     }
 }
