@@ -9,8 +9,12 @@ import Practico3.utils.TreeNode;
 public class BinarySearchTreeTest <T extends Comparable <T>>{
     private Random random = new Random();
 
+    /**
+     * Created a random binary search tree with double numbers from 0 to 26.
+     * @return an instance of the object of the created random binary search tree
+     */
     public BinarySearchTree<Double> createRandomBinarySearchTree() {
-    TreeNode<Double> rootNode = new TreeNode<>(this.random.nextDouble(26));
+        TreeNode<Double> rootNode = new TreeNode<>(this.random.nextDouble(26));
         BinarySearchTree<Double> tree = new BinarySearchTree<>(rootNode);
 
         try {
@@ -26,6 +30,10 @@ public class BinarySearchTreeTest <T extends Comparable <T>>{
         return tree;
     } 
 
+    /**
+     * Creates a predefined binary search tree of integer numbers. It was created by me.
+     * @return an instance of the object of the created binary search tree.
+    */
     public BinarySearchTree<Integer> createBinarySearchTree() {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
 
