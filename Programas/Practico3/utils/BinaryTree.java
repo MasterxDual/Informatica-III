@@ -162,17 +162,41 @@ public class BinaryTree <U> {
     }
 
     /**
-     * Prints a binary tree with the sequence requested from the guide 6 exercise 2
-     * @param root of the binary tree
+     * Prints a binary tree with the sequence requested from the guide 6 exercise 2.
+     * @param root of the binary tree.
      */
     public void printTree(TreeNode<U> root) {
-        //Caso base: que el subarbol esté vacío (root == null)
-        System.out.println(root.getValue());
-        if(root.leftNode != null) {
-            printTree(root.leftNode);
-        }
-        if(root.rightNode != null) {
-            printTree(root.rightNode);
+        printTree(root, "", true, 0);
+    }
+
+    /**
+     * Prints a binary tree with the sequence requested from the guide 6 exercise 2.
+     * @param root of the binary tree.
+     * @param prefix to print before the sequence and the root value.
+     * @param isTail to check if is a tail or not.
+     * @param flag to check if it is the first call of the function or not.
+     */
+    public void printTree(TreeNode<U> root, String prefix, boolean isTail, int flag) {
+        if (root != null) {
+            if(flag != 0) {
+                System.out.println(prefix + (isTail ? "└── " : "├── ") + root.getValue());
+            } else {
+                System.out.println("    " + root.getValue());
+            }
+            flag++;
+
+            if (root.leftNode != null || root.rightNode != null) {
+                if (root.leftNode != null) {
+                    if (root.rightNode != null) {
+                        printTree(root.leftNode, prefix + (isTail ? "    " : "│   "), false, flag);
+                        printTree(root.rightNode, prefix + (isTail ? "    " : "│   "), true, flag);
+                    } else {
+                        printTree(root.leftNode, prefix + (isTail ? "    " : "│   "), true, flag);
+                    }
+                } else {
+                    printTree(root.rightNode, prefix + (isTail ? "    " : "│   "), true, flag);
+                }
+            }
         }
     }
 }
