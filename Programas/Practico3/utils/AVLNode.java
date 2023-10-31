@@ -1,13 +1,21 @@
 package Practico3.utils;
 
-public class AVLNode<U> extends TreeNode<U>{
+public class AVLNode<U> {
     int height; //Height difference between the left subtree and the right subtree of a node
-    AVLNode<U> leftAVLNode;
-    AVLNode<U> rightAVLNode;
+    AVLNode<U> leftNode;
+    AVLNode<U> rightNode;
+    U value;
 
     public AVLNode(U value) {
-        super(value);
-        this.leftAVLNode = this.rightAVLNode = null;
+        this.value = value;
+        this.leftNode = this.rightNode = null;
+        this.height = 1;
+    }
+
+    public AVLNode(U value, AVLNode<U> leftNode, AVLNode<U> rightNode) {
+        this.value = value;
+        this.leftNode = leftNode;
+        this.rightNode = rightNode;
         this.height = 1;
     }
 
@@ -16,24 +24,34 @@ public class AVLNode<U> extends TreeNode<U>{
     }
 
     public int getHeight() {
-        return height;
+        return this.height;
     }
 
-    @Override
     public AVLNode<U> getLeftNode() {
-        return this.leftAVLNode;
+        return this.leftNode;
     }
 
-    public void setLeftNode(AVLNode<U> leftAVLNode) {
-        this.leftAVLNode = leftAVLNode;
+    public void setLeftNode(AVLNode<U> leftNode) {
+        this.leftNode = leftNode;
     }
 
-    @Override
     public AVLNode<U> getRightNode() {
-        return this.rightAVLNode;
+        return this.rightNode;
     }
 
-    public void setRigthNode(AVLNode<U> rigthAVLNode) {
-        this.rightAVLNode = rigthAVLNode;
+    public void setRigthNode(AVLNode<U> rightNode) {
+        this.rightNode = rightNode;
+    }
+
+    public U getValue() {
+        return this.value;
+    }
+
+    public void setValue(U value) {
+        this.value = value;
+    }
+
+    public void printValueNode() {
+        System.out.println(this.value + " ");
     }
 }
