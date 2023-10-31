@@ -227,6 +227,49 @@ public class AVLTree <T extends Comparable<T>> {
         return root;
     }
 
-    
+    /**
+     * Double left rotation, first rotates to the left, then rotates to the right the avl tree previously rotated.
+     * @param z node to be used as a root of the subtree to be rotated.
+     * @return new root of the rotated avl tree.
+     */
+    private AVLNode<T> leftRightRotate(AVLNode<T> z) {
+        AVLNode<T> t2 = z.leftNode;
+        AVLNode<T> y = t2.rightNode;
 
+
+        t2.setRigthNode(y.getLeftNode());
+        y.setLeftNode(t2);
+
+        z.setLeftNode(y.getRightNode());
+        y.setRigthNode(z);
+
+        updateHeigth(z);
+        updateHeigth(t2);
+        updateHeigth(y);
+
+        return y;
+    }
+
+    /**
+     * Double rigth rotation, first rotates to the right, then rotates to the left the avl tree previously rotated.
+     * @param z node to be used as a root of the subtree to be rotated.
+     * @return new root of the rotated avl tree.
+     */
+    private AVLNode<T> rightLeftRotate(AVLNode<T> z) {
+        AVLNode<T> t2 = z.rightNode;
+        AVLNode<T> y = t2.leftNode;
+
+
+        t2.setLeftNode(y.getRightNode());
+        y.setRigthNode(t2);
+
+        z.setRigthNode(y.getLeftNode());
+        y.setLeftNode(z);
+
+        updateHeigth(z);
+        updateHeigth(t2);
+        updateHeigth(y);
+
+        return y;
+    }
 }
