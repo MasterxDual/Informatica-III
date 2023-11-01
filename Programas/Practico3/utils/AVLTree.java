@@ -20,6 +20,33 @@ public class AVLTree <T extends Comparable<T>> {
     public void setRoot(AVLNode<T> root) {
         this.root = root;
     }
+
+    /** (IND)
+     * Recorre el arbol de manera inOrder, primero recorre el subarbol izquierdo en orden (I) , luego
+     * visita el nodo raiz (N), en tercer y ultimo lugar recorre el subarbol derecho en orden (D).
+     * @param root of the binary tree
+     */
+    public void inOrder(AVLNode<T> root) {
+        //Caso base: que el subarbol este vacio (root == null)
+        if(root != null) {
+            inOrder(root.getLeftNode());
+            root.printValueNode();
+            inOrder(root.getRightNode());
+        }
+    }
+
+    /**
+     * Calculates and returns the total number of nodes of a binary tree
+     * @param root of the binary tree
+     * @return total number of nodes
+     */
+    public int getNumNodes(AVLNode<T> root) {
+        if(root == null) {
+            return 0;
+        } else {
+            return 1 + getNumNodes(root.getLeftNode()) + getNumNodes(root.getRightNode());
+        }
+    }
     
     /**
      * Checks if tree is empty
