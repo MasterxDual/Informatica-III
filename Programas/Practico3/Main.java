@@ -1,10 +1,13 @@
 package Practico3;
 
 import Practico3.exceptions.ItemNotFoundException;
+import Practico3.tests.AvlTreeTest;
 import Practico3.tests.BinarySearchTreeTest;
 import Practico3.tests.BinaryTreeTest;
 import Practico3.tests.QueueTest;
 import Practico3.tests.StackTest;
+import Practico3.utils.AVLNode;
+import Practico3.utils.AVLTree;
 import Practico3.utils.BinarySearchTree;
 import Practico3.utils.BinaryTree;
 import Practico3.utils.Queue;
@@ -27,7 +30,9 @@ public class Main {
         BinarySearchTreeTest<Integer> treeTest2 = new BinarySearchTreeTest();
         BinarySearchTree<Double> tree3 = new BinarySearchTree<>();
         BinarySearchTreeTest<Double> treeTest3 = new BinarySearchTreeTest();
-        
+        AvlTreeTest<Integer> avlTreeTest1 = new AvlTreeTest<>();
+        AVLTree<Integer> avlTree1 = new AVLTree<>();
+
         /*
         test1.testStackInteger();
         test1.testStackString(); 
@@ -101,8 +106,33 @@ public class Main {
             System.out.println(e.getMessage());
         } */
 
-        BinaryTree<Integer> treeB = treeTest1.createBinaryTree();
+        /* BinaryTree<Integer> treeB = treeTest1.createBinaryTree();
         System.out.println("Profundidad del arbol es igual a " + tree1.depth(treeB.getRoot()));
-        tree1.printTree(treeB.getRoot());
+        tree1.printTree(treeB.getRoot()); */
+
+        /* AVLTree<Integer> treeC = avlTreeTest1.createFirstAvlTree();
+        avlTree1.inOrder(treeC.getRoot());
+        System.out.println("La cantidad de nodos del arbol avl es igual a " + avlTree1.getNumNodes(treeC.getRoot())); */
+
+        /* AVLTree<Integer> treeD = avlTreeTest1.createSecondAvlTree();
+        avlTree1.inOrder(treeD.getRoot());
+        System.out.println("La cantidad de nodos del arbol avl es igual a " + avlTree1.getNumNodes(treeD.getRoot())); */
+
+        /* AVLTree<Integer> treeE = avlTreeTest1.createThirdAvlTree();
+        avlTree1.inOrder(treeE.getRoot());
+        System.out.println("La cantidad de nodos del arbol avl es igual a " + avlTree1.getNumNodes(treeE.getRoot()));
+        treeE.deleteElement(1);
+        System.out.println("Nodo con valor 1 eliminado");
+        avlTree1.inOrder(treeE.getRoot());
+        System.out.println("La cantidad de nodos del arbol avl donde se eliminó al 1 es igual a " + avlTree1.getNumNodes(treeE.getRoot())); */
+
+        AVLTree<Integer> treeF = avlTreeTest1.createThirdAvlTree();
+        avlTree1.inOrder(treeF.getRoot());
+        System.out.println("La cantidad de nodos del arbol avl es igual a " + avlTree1.getNumNodes(treeF.getRoot()));
+        treeF.deleteElement(30);
+        System.out.println("Nodo con valor 30 eliminado");
+        avlTree1.inOrder(treeF.getRoot());
+        System.out.println("La cantidad de nodos del arbol avl donde se eliminó al 30 es igual a " + avlTree1.getNumNodes(treeF.getRoot()));
+
     }
 }
