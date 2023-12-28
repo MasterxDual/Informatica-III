@@ -195,9 +195,10 @@ public class AVLTree <T extends Comparable<T>> {
         if (root == null) {
             throw new ItemNotFoundException(element.toString());
         }
-        if (element.compareTo(root.value) < 0) {
+        int cmp = element.compareTo(root.value);
+        if (cmp < 0) {
             root.leftNode = delete(root.leftNode, element);
-        } else if (element.compareTo(root.value) > 0) {
+        } else if (cmp > 0) {
             root.rightNode = delete(root.rightNode, element);
         } else {
             //Found node, it's time to eliminate it
@@ -223,6 +224,11 @@ public class AVLTree <T extends Comparable<T>> {
                 root.rightNode = delete(root.rightNode, temp.value);
             }
         }
+
+        if (root == null) {
+            throw new ItemNotFoundException(element.toString());
+        }
+
          // Actualizar la altura del nodo actual
         updateHeigth(root);
 
