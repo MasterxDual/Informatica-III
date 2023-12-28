@@ -188,11 +188,7 @@ public class AVLTree <T extends Comparable<T>> {
     }
 
     public void deleteElement(T element) {
-        try {
-            this.root = delete(root, element);
-        } catch (ItemNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
+        this.root = delete(root, element);
     }
 
     /**
@@ -203,9 +199,9 @@ public class AVLTree <T extends Comparable<T>> {
      * @return The updated root node of the AVL tree after the deletion.
      * @throws Exception If the root node is null.
      */
-    private AVLNode<T> delete(AVLNode<T> root, T element) throws ItemNotFoundException {
+    private AVLNode<T> delete(AVLNode<T> root, T element) {
         if (root == null) {
-            throw new ItemNotFoundException(element.toString());
+            return root;
         }
         int cmp = element.compareTo(root.value);
         if (cmp < 0) {
@@ -238,7 +234,7 @@ public class AVLTree <T extends Comparable<T>> {
         }
 
         if (root == null) {
-            throw new ItemNotFoundException(element.toString());
+            return root;
         }
 
          // Actualizar la altura del nodo actual
