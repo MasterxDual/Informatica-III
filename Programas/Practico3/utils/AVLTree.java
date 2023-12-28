@@ -132,13 +132,17 @@ public class AVLTree <T extends Comparable<T>> {
         return root;
     }
 
+    public void insertElement(T element) {
+        this.root = insert(root, element);
+    }
+
     /**
      * Inserts a new node to the avl tree.
      * @param root of avl tree.
      * @param element to be inserted.
      * @return root of the new avl tree
      */
-    public AVLNode<T> insert(AVLNode<T> root, T element) {
+    private AVLNode<T> insert(AVLNode<T> root, T element) {
         if (root == null) {
             return new AVLNode<>(element);
         }
@@ -183,6 +187,14 @@ public class AVLTree <T extends Comparable<T>> {
         return root;
     }
 
+    public void deleteElement(T element) {
+        try {
+            this.root = delete(root, element);
+        } catch (ItemNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     /**
      * Deletes a node with a specific element from the AVL tree and maintains the balance of the tree.
      *
@@ -191,7 +203,7 @@ public class AVLTree <T extends Comparable<T>> {
      * @return The updated root node of the AVL tree after the deletion.
      * @throws Exception If the root node is null.
      */
-    public AVLNode<T> delete(AVLNode<T> root, T element) throws ItemNotFoundException {
+    private AVLNode<T> delete(AVLNode<T> root, T element) throws ItemNotFoundException {
         if (root == null) {
             throw new ItemNotFoundException(element.toString());
         }
