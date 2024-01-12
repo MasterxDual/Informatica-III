@@ -97,6 +97,20 @@ public class Recursive {
         }
     }
 
+    /**
+     * Este método lo hice cuando repasé para el final, me salió otra solución y quería probar si andaba, y si anda jeje
+     * @param array
+     * @param v
+     */
+    public void printNormal2(Double[] array, Integer v) {
+        if(v == 0) {
+            System.out.println(array[0]);
+            return;
+        }
+        System.out.print(array[v] + ", ");
+        printNormal2(array, v - 1);
+    }
+
     /* Escriba un método recursivo que devuelva el número de unos en la representación
     binaria de N. Use el hecho de que es igual al número de unos en la representación
     binaria de N/2, más 1 si N es impar. */

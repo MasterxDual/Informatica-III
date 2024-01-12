@@ -104,6 +104,9 @@ public class Menu {
                         array[i] = scan.nextDouble();
                     }
 
+                    System.out.println("Orden normal, otra opcion:");
+                    operation.printNormal2(array, t - 1);
+
                     System.out.println("Orden normal:");
                     operation.printNormal(array, t);
 
