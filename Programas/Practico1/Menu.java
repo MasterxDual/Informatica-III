@@ -122,7 +122,9 @@ public class Menu {
                 System.out.println("Ingrese el numero que desea convertir a binario");
                 t = scan.nextInt();
                 System.out.println("La cantidad de unos que tiene el numero " + t + " es igual a " + operation.binary(t));
-                System.out.println("Numero binario invertido:");
+                System.out.println("Numero binario invertido opcion 2:");
+                operation.printInverseBinary2(t);
+                System.out.println("\nNumero binario invertido:");
                 operation.printInverseBinary(t);
         }
         scan.close();

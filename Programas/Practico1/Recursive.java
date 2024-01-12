@@ -138,4 +138,17 @@ public class Recursive {
             printInverseBinary(number/2);
         } 
     }
+
+    public void printInverseBinary2(Integer number) {
+        if(number == 1) {
+            System.out.print(1);
+            return;
+        }
+        if(number % 2 != 0) {
+            System.out.print(1 + " ");
+        } else {
+            System.out.print(0 + " ");
+        }
+        printInverseBinary2(number/2);
+    }
 }
