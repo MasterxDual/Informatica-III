@@ -81,6 +81,18 @@ public class QueueList<U extends Comparable<U>> {
     }
 
     /**
+     * Returns the last node of the queue
+     * @return last node (back node)
+     * @throws QueueIsEmptyException
+     */
+    public Node<U> getBackNode() throws QueueIsEmptyException {
+        if(isEmpty()) {
+            throw new QueueIsEmptyException();
+        }
+        return this.back;
+    }
+
+    /**
      * Verify if the queue is empty.
      * @return true if empty, false otherwise
      */
