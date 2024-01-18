@@ -2,9 +2,11 @@ package Practico3.tests;
 
 import Practico3.exceptions.QueueIsEmptyException;
 import Practico3.exceptions.QueueIsFullException;
+import Practico3.exceptions.StackIsEmptyException;
 import Practico3.utils.Node;
 import Practico3.utils.Queue;
 import Practico3.utils.QueueList;
+import Practico3.utils.StackList;
 
 import java.util.Locale;
 import java.util.Random;
@@ -275,7 +277,76 @@ public class QueueTest<T extends Comparable<T>> {
         } catch (QueueIsEmptyException e) {
             System.out.println(e.getMessage());
         }
-    } 
+    }
+    
+    /**
+     * Este metodo fue hecho de manera rustica, sin ayuda de ningun algoritmo de ordenamiento desarrollado por otros.
+     * A pico y pala nomas.
+     * Ordena de manera ascendente una cola desordenada. Utiliza una pila auxiliar para ir insertando los valores de modo que luego
+     * se imprima de menor a mayor.
+     * @param queue desordenada
+     */
+    public void sortQueueListAscending2(QueueList<T> queue) {
+        try {
+            Node<T> max;
+            Node<T> temp;
+            int size = queue.getSize();
+            StackList<T> stack = new StackList<>();
+
+            for(int z = 0; z < size; z++) {
+                max = temp = queue.getFrontNode();
+                
+                //Encontrar el maximo en la cola actual
+                while(temp.getNext() != null) {
+                    temp = temp.getNext();
+                    if(temp.getData().compareTo(max.getData()) > 0) {
+                        max = temp;
+                    }
+                }
+                stack.push(max.getData());
+                temp = queue.getFrontNode();
+    
+
+                //Si el frente de la cola es el maximo, la desencolo para eliminar el mismo
+                if(temp.getData().compareTo(max.getData()) == 0) {
+                    queue.dequeue();
+                } else {
+                    temp = queue.getFrontNode();
+
+                    //Mover temp al nodo anterior al maximo
+                    if(temp.getNext() != null) {
+                        while ((temp.getNext().getData().compareTo(max.getData()) != 0)) {
+                            if(temp.getNext() != null) {
+                                temp = temp.getNext();
+                            }
+                        }
+                    }
+                    
+                    
+                    Node<T> nextNextTemp = temp.getNext().getNext();
+                    Node<T> back = queue.getBackNode();
+
+                    //En el caso que el maximo se encuentre entre medio, se elimina de esta manera
+                    if(nextNextTemp != null) {
+                        temp.setNext(nextNextTemp);
+                    } else {
+                        //En el caso que el maximo se encuentre al final de la cola, se elimina de esta manera
+                        back = temp;
+                        temp.setNext(null);
+                    }
+                }
+            }    
+
+            //Se imprime la pila auxiliar ordenada de menor a mayor
+            while(!stack.isEmpty()) {
+                System.out.print(stack.pop() + " ");
+            }
+            
+        } catch(QueueIsEmptyException | StackIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
 
     /**
      * Prints all elements of the queue list

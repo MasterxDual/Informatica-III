@@ -74,6 +74,11 @@ public class Main {
         test3.sortQueueListAscending(originalQueue5);
         test3.printQueue(originalQueue5);  */
 
+        System.out.println("Cola original desordenada:");
+        test2.printQueue(originalQueue3);
+        System.out.println("Cola ordenada de menor a mayor:");
+        test2.sortQueueListAscending2(originalQueue3);
+
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
         /* tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
@@ -126,13 +131,13 @@ public class Main {
         avlTree1.inOrder(treeE.getRoot());
         System.out.println("La cantidad de nodos del arbol avl donde se eliminó al 1 es igual a " + avlTree1.getNumNodes(treeE.getRoot())); */
 
-        AVLTree<Integer> treeF = avlTreeTest1.createThirdAvlTree();
+        /* AVLTree<Integer> treeF = avlTreeTest1.createThirdAvlTree();
         avlTree1.inOrder(treeF.getRoot());
         System.out.println("La cantidad de nodos del arbol avl es igual a " + avlTree1.getNumNodes(treeF.getRoot()));
         treeF.deleteElement(30);
         System.out.println("Nodo con valor 30 eliminado");
         avlTree1.inOrder(treeF.getRoot());
-        System.out.println("La cantidad de nodos del arbol avl donde se eliminó al 30 es igual a " + avlTree1.getNumNodes(treeF.getRoot()));
+        System.out.println("La cantidad de nodos del arbol avl donde se eliminó al 30 es igual a " + avlTree1.getNumNodes(treeF.getRoot())); */
 
     }
 }
