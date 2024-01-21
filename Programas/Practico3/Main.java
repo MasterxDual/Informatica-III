@@ -1,6 +1,9 @@
 package Practico3;
 
+import java.util.Scanner;
+
 import Practico3.exceptions.ItemNotFoundException;
+import Practico3.exceptions.QueueIsEmptyException;
 import Practico3.tests.AvlTreeTest;
 import Practico3.tests.BinarySearchTreeTest;
 import Practico3.tests.BinaryTreeTest;
@@ -24,6 +27,7 @@ public class Main {
         QueueList<Integer> originalQueue3 = test2.createRandomQueueList(5);
         QueueList<Double> originalQueue4 = test4.createRandomQueueList(5);
         QueueList<String> originalQueue5 = test3.createRandomQueueList(5);
+        QueueList<Double> queueByInput = test4.createQueueListByInput();
         BinaryTreeTest<Integer> treeTest1 = new BinaryTreeTest<>();
         BinaryTree<Integer> tree1 = new BinaryTree<>();
         BinarySearchTree<Integer> tree2 = new BinarySearchTree<>();
@@ -74,10 +78,21 @@ public class Main {
         test3.sortQueueListAscending(originalQueue5);
         test3.printQueue(originalQueue5);  */
 
-        System.out.println("Cola original desordenada:");
+        /* System.out.println("Cola original desordenada:");
         test2.printQueue(originalQueue3);
         System.out.println("Cola ordenada de menor a mayor:");
-        test2.sortQueueListAscending2(originalQueue3);
+        test2.sortQueueListAscending2(originalQueue3); */
+
+        try {
+            System.out.println("¿Que valor desea buscar en la lista?");
+            Double value = new Scanner(System.in).nextDouble();
+            System.out.println("Valor encontrado: " + test4.searchList(queueByInput, queueByInput.getFrontNode(), value).getData());
+        } catch (QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        } catch(NullPointerException a) {
+            System.err.println("El valor no fue encontrado en la lista.");
+        }
+
 
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
