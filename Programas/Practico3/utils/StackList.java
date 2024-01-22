@@ -89,4 +89,19 @@ public class StackList <T> {
     public void setRoot(Node<T> root) {
         this.root = root;
     }
+
+    /**
+     * Prints the stack list, node by node.
+     * @param root of stack list to be printed
+     */
+    public void printStack(Node<T> root) throws StackIsEmptyException {
+        if(isEmpty()) {
+            throw new StackIsEmptyException();
+        }
+        while(root != null) {
+            System.out.print(root.getData() + " ");
+            root = root.next;
+        }
+        System.out.println();
+    }
 }
