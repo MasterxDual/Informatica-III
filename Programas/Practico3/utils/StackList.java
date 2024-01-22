@@ -73,4 +73,20 @@ public class StackList <T> {
         }
         return count;
     }
+
+    /**
+     * Gets a pointer of the root node
+     * @return root node
+     */
+    public Node<T> getRoot() {
+        return root;
+    }
+
+    /**
+     * Establishes root node
+     * @param root node to be established
+     */
+    public void setRoot(Node<T> root) {
+        this.root = root;
+    }
 }
