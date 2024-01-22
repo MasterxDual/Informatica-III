@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Practico3.exceptions.ItemNotFoundException;
 import Practico3.exceptions.QueueIsEmptyException;
+import Practico3.exceptions.StackIsEmptyException;
 import Practico3.tests.AvlTreeTest;
 import Practico3.tests.BinarySearchTreeTest;
 import Practico3.tests.BinaryTreeTest;
@@ -15,6 +16,7 @@ import Practico3.utils.BinarySearchTree;
 import Practico3.utils.BinaryTree;
 import Practico3.utils.Queue;
 import Practico3.utils.QueueList;
+import Practico3.utils.StackList;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,7 +29,7 @@ public class Main {
         QueueList<Integer> originalQueue3 = test2.createRandomQueueList(5);
         QueueList<Double> originalQueue4 = test4.createRandomQueueList(5);
         QueueList<String> originalQueue5 = test3.createRandomQueueList(5);
-        QueueList<Double> queueByInput = test4.createQueueListByInput();
+        /* QueueList<Double> queueByInput = test4.createQueueListByInput(); */
         BinaryTreeTest<Integer> treeTest1 = new BinaryTreeTest<>();
         BinaryTree<Integer> tree1 = new BinaryTree<>();
         BinarySearchTree<Integer> tree2 = new BinarySearchTree<>();
@@ -83,7 +85,7 @@ public class Main {
         System.out.println("Cola ordenada de menor a mayor:");
         test2.sortQueueListAscending2(originalQueue3); */
 
-        try {
+        /* try {
             System.out.println("¿Que valor desea buscar en la lista?");
             Double value = new Scanner(System.in).nextDouble();
             System.out.println("Valor encontrado: " + test4.searchList(queueByInput, queueByInput.getFrontNode(), value).getData());
@@ -91,9 +93,21 @@ public class Main {
             System.out.println(e.getMessage());
         } catch(NullPointerException a) {
             System.err.println("El valor no fue encontrado en la lista.");
+        } */
+
+        StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>());
+        try {
+            System.out.println("Pila original:");
+            originalStack1.printStack(originalStack1.getRoot());
+            test1.reemplazar(originalStack1, 20, 10);
+            System.out.println("Pila modificada:");
+            originalStack1.printStack(originalStack1.getRoot());
+        } catch(StackIsEmptyException e) {
+            System.err.println(e.getMessage());
+        } catch(NullPointerException a) {
+            System.err.println("Abortando procedimiento.");
         }
-
-
+        
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
         /* tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
