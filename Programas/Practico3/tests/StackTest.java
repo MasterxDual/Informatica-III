@@ -1,7 +1,10 @@
 package Practico3.tests;
 
+import java.util.Scanner;
+
 import Practico3.exceptions.StackIsEmptyException;
 import Practico3.exceptions.StackIsFullException;
+import Practico3.utils.Node;
 import Practico3.utils.Stack;
 import Practico3.utils.StackList;
 
@@ -263,6 +266,45 @@ public class StackTest {
             System.out.print(stackList.pop() + " ");
         } catch (StackIsEmptyException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * Creates a stack list by input of numbers
+     * @param stack created
+     * @return stack list created
+     */
+    public StackList<Integer> insertStackByInput(StackList<Integer> stack) {
+        int number;
+        do {
+            System.out.println("Ingrese un numero");
+            stack.push(new Scanner(System.in).nextInt());
+            System.out.println("¿Desea ingresar otro numero? (1-Si 0-No)");
+            number = new Scanner(System.in).nextInt();
+        } while(number != 0);
+
+        return stack;
+    }
+
+    /**
+     * Si encuentra el valor 'viejo' en la pila enlazada, lo reemplaza por el valor 'nuevo'. 
+     * Sino, lanza una excepcion.
+     * @param stack a buscar el elemento
+     * @param nuevo valor que reemplaza al otro
+     * @param viejo valor reemplazado
+     * @throws NullPointerException Si no encuentra el valor 'viejo'
+     */
+    public void reemplazar(StackList<Integer> stack, int nuevo, int viejo) throws NullPointerException {
+        Node<Integer> temp = stack.getRoot();
+        
+        try {
+            while(temp.getData() != viejo) {
+                temp = temp.getNext();
+            }
+            temp.setData(nuevo);
+        } catch(NullPointerException e) {
+            System.err.println("No se ha encontrado el valor " + viejo + " en la pila");
+            throw e;
         }
     }
 }
