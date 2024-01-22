@@ -307,4 +307,32 @@ public class StackTest {
             throw e;
         }
     }
+
+    /**Un puntero p apunta a la base y otro t apunta al ultimo elemento agregado. 
+     * Lee los dos ultimos numeros agregados y almacena la suma de estos en la misma pila.
+     * Ademas, imprime el puntero p y el t.
+     * @param stack a sumar
+     */
+    public void sumarYAgregar(StackList<Integer> stack) {
+        try {
+            Node<Integer> topOfStack = stack.getRoot();
+            Node<Integer> t = topOfStack;
+            Node<Integer> p = t;
+            Node<Integer> newNode = new Node<>(t.getData() + t.getNext().getData());
+    
+            while(p.getNext() != null) {
+                p = p.getNext();
+            }
+    
+            newNode.setNext(topOfStack);
+            stack.setRoot(newNode);
+            t = newNode;
+    
+            System.out.println("Nodo base p = " + p.getData());
+            System.out.println("Nodo top of stack t = " + t.getData());
+        } catch(NullPointerException e) {
+            System.err.println("La pila no contiene la cantidad suficiente de nodos para realizar la operacion.");
+            throw e;
+        }
+    }
 }

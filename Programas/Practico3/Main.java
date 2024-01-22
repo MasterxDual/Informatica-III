@@ -16,6 +16,7 @@ import Practico3.utils.BinarySearchTree;
 import Practico3.utils.BinaryTree;
 import Practico3.utils.Queue;
 import Practico3.utils.QueueList;
+import Practico3.utils.Stack;
 import Practico3.utils.StackList;
 
 public class Main {
@@ -97,7 +98,7 @@ public class Main {
         } */
 
         StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>());
-        try {
+        /* try {
             System.out.println("Pila original:");
             originalStack1.printStack(originalStack1.getRoot());
             test1.reemplazar(originalStack1, 20, 10);
@@ -107,8 +108,20 @@ public class Main {
             System.err.println(e.getMessage());
         } catch(NullPointerException a) {
             System.err.println("Abortando procedimiento.");
-        }
+        } */
 
+        try {
+            System.out.println("Pila original:");
+            originalStack1.printStack(originalStack1.getRoot());
+            test1.sumarYAgregar(originalStack1);
+            System.out.println("Pila modificada:");
+            originalStack1.printStack(originalStack1.getRoot());    
+        } catch (NullPointerException e) {
+            System.out.println("Abortando procedimiento.");
+        } catch(StackIsEmptyException a) {
+            System.out.println(a.getMessage());
+        }
+        
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
         /* tree1.inOrder(treeTest1.createRandomBinaryTree().getRoot());
