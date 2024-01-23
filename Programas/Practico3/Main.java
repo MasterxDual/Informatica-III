@@ -75,10 +75,19 @@ public class Main {
         test2.sortQueueListAscending(originalQueue3);
         test2.printQueue(originalQueue3);
         
-        try {
+        /* try {
             System.out.println(test2.sumatoria(90, originalQueue3.getFrontNode()));
         } catch(QueueIsEmptyException e) {
             System.out.println(e.getMessage());
+        } */
+
+        
+        try {
+            originalQueue3.moverPri(1);
+            System.out.println("Cola luego de mover al principio:");
+            test2.printQueue(originalQueue3);
+        } catch (NullPointerException e) {
+            System.out.println("La posicion no existe");
         }
 
         /*System.out.println("Cola original desordenada: ");
