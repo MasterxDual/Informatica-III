@@ -428,4 +428,21 @@ public class QueueTest<T extends Comparable<T>> {
         return searchList(queue, temp.getNext(), value);
     }
 
+    /**
+     * Suma todos los datos de los nodos mayores a un valor 'limite'. 
+     * Fue implementado para una lista enlazada en principio, pero funciona para una cola enlazada tambien.
+     * @param limite valor tope a sumar los nodos
+     * @param head nodo front de la cola enlazada. O nodo head de la lista enlazada
+     * @return sumatoria de todos los nodos mayores al valor 'limite'
+     */
+    public int sumatoria(T limite, Node<T> head) {
+        if(head == null) {
+            return 0;
+        }
+        if(head.getData().compareTo(limite) > 0) {
+            return (int)head.getData() + sumatoria(limite, head.getNext());
+        }
+        return sumatoria(limite, head.getNext());
+    }
+
 }

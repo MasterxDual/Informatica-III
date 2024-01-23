@@ -69,12 +69,19 @@ public class Main {
         /* System.out.println("Usted esta por comenzar a crear una cola enlazada con numeros enteros:");
         System.out.println("La suma de todos los elementos de la cola es igual a "+ test4.sumOfQueueNumbers(test4.createQueueListByInput())); */
 
-        /* System.out.println("Cola original desordenada: ");
+        System.out.println("Cola original desordenada: ");
         test2.printQueue(originalQueue3);
         System.out.println("Cola ordenada de mayor a menor");
         test2.sortQueueListAscending(originalQueue3);
         test2.printQueue(originalQueue3);
-        System.out.println("Cola original desordenada: ");
+        
+        try {
+            System.out.println(test2.sumatoria(90, originalQueue3.getFrontNode()));
+        } catch(QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+
+        /*System.out.println("Cola original desordenada: ");
         test3.printQueue(originalQueue5);
         System.out.println("Cola ordenada de mayor a menor");
         test3.sortQueueListAscending(originalQueue5);
@@ -97,7 +104,7 @@ public class Main {
             System.err.println("El valor no fue encontrado en la lista.");
         } */
 
-        StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>());
+        /* StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>()); */
         /* try {
             System.out.println("Pila original:");
             originalStack1.printStack(originalStack1.getRoot());
@@ -110,7 +117,7 @@ public class Main {
             System.err.println("Abortando procedimiento.");
         } */
 
-        try {
+        /* try {
             System.out.println("Pila original:");
             originalStack1.printStack(originalStack1.getRoot());
             test1.sumarYAgregar(originalStack1);
@@ -120,7 +127,7 @@ public class Main {
             System.out.println("Abortando procedimiento.");
         } catch(StackIsEmptyException a) {
             System.out.println(a.getMessage());
-        }
+        } */
         
         //System.out.println(test2.verifyPalindrome("A mi loca Colima"));
 
