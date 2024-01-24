@@ -22,6 +22,14 @@ public class QueueList<U extends Comparable<U>> {
     }
 
     /**
+     * Establishes first node (front node) of the queue list.
+     * @param front node to be established.
+     */
+    public void setFront(Node<U> front) {
+        this.front = front;
+    }
+
+    /**
      * Adds a new element to the queue, enters through the back.
      * @param element added
      */
