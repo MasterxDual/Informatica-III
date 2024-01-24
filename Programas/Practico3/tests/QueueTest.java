@@ -445,4 +445,44 @@ public class QueueTest<T extends Comparable<T>> {
         return sumatoria(limite, head.getNext());
     }
 
+    /**
+     * It receives a list and a stack, and modifies the original list/queue, removing the indicated positions for each node from the stack.
+     * Position 1 is the first node of the list/queue, that is, if we pass the stack it has a node with 
+     * value 1, the first node will be eliminated if the list/queue is not empty.
+     * @param queue to modify
+     * @param stack indicating the positions to be eliminated
+     */
+    public void eliminateListNodes(QueueList<T> queue, StackList<T> stack) {
+        try {
+            Node<T> tempStack = stack.getRoot();
+            Node<T> tempList;
+
+            while(tempStack != null) {
+                if((int)tempStack.getData() != 1) {
+                    tempList = queue.getFrontNode();
+                    for(int t = 0; t < (int)tempStack.getData() - 1; t++) {
+                        if(tempList.getNext() != null) {
+                            tempList = tempList.getNext();
+                        } else {
+                            throw new NullPointerException("No existe esa posicion en la lista");
+                        }
+                    }
+                    Node<T> tempList2 = queue.getFrontNode();
+        
+                    while(tempList2.getNext() != tempList && tempList2 != tempList) {
+                        tempList2 = tempList2.getNext();
+                    }
+                    tempList2.setNext(tempList.getNext());
+                    tempList.setNext(null);
+                    tempStack = tempStack.getNext();
+                } else {
+                    queue.setFront(queue.getFrontNode().getNext());
+                    tempStack = tempStack.getNext();
+                }
+            }
+        } catch(QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

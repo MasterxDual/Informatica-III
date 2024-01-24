@@ -81,14 +81,16 @@ public class Main {
             System.out.println(e.getMessage());
         } */
 
-        
-        try {
+        /* try {
             originalQueue3.moverPri(1);
             System.out.println("Cola luego de mover al principio:");
             test2.printQueue(originalQueue3);
         } catch (NullPointerException e) {
             System.out.println("La posicion no existe");
-        }
+        } */
+
+        test2.eliminateListNodes(originalQueue3, test1.insertStackByInput(new StackList<>()));
+        test2.printQueue(originalQueue3);
 
         /*System.out.println("Cola original desordenada: ");
         test3.printQueue(originalQueue5);
