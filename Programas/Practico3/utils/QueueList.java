@@ -131,11 +131,11 @@ public class QueueList<U extends Comparable<U>> {
     }
 
     /**
-     * Mueve el primer elemento a la posicion n. "Empujando" los demas nodos hacia delante, y así ocupando
-     * el lugar del primer elemento. 
-     * @param n posicion a ocupar por el primer elemento
+     * Move the first element to position n. "Pushing" the other nodes forward, and thus
+     * taking the place of the first element. 
+     * @param n position to be occupied by the first element
      */
-    public void moverPri(int n) {
+    public void moveFirst(int n) {
         Node<U> temp = this.front;
 
         if(n == 1) {
@@ -155,4 +155,6 @@ public class QueueList<U extends Comparable<U>> {
         this.front.next = temp2;
         this.front = temp3;
     }
+
+
 }

@@ -287,33 +287,33 @@ public class StackTest {
     }
 
     /**
-     * Si encuentra el valor 'viejo' en la pila enlazada, lo reemplaza por el valor 'nuevo'. 
-     * Sino, lanza una excepcion.
-     * @param stack a buscar el elemento
-     * @param nuevo valor que reemplaza al otro
-     * @param viejo valor reemplazado
-     * @throws NullPointerException Si no encuentra el valor 'viejo'
+     * If it finds the 'old' value on the bound stack, it replaces it with the 'new' value. 
+     * Otherwise, throw an exception.
+     * @param stack to search for the element
+     * @param newValue value that replaces the other
+     * @param oldValue replaced value
+     * @throws NullPointerException If don't find the value 'old'
      */
-    public void reemplazar(StackList<Integer> stack, int nuevo, int viejo) throws NullPointerException {
+    public void replace(StackList<Integer> stack, int newValue, int oldValue) throws NullPointerException {
         Node<Integer> temp = stack.getRoot();
         
         try {
-            while(temp.getData() != viejo) {
+            while(temp.getData() != oldValue) {
                 temp = temp.getNext();
             }
-            temp.setData(nuevo);
+            temp.setData(newValue);
         } catch(NullPointerException e) {
-            System.err.println("No se ha encontrado el valor " + viejo + " en la pila");
+            System.err.println("No se ha encontrado el valor " + oldValue + " en la pila");
             throw e;
         }
     }
 
-    /**Un puntero p apunta a la base y otro t apunta al ultimo elemento agregado. 
-     * Lee los dos ultimos numeros agregados y almacena la suma de estos en la misma pila.
-     * Ademas, imprime el puntero p y el t.
-     * @param stack a sumar
+    /**A pointer p points to the base and another t points to the last added element.
+     * Reads the last two numbers added and stores the sum of these on the same stack.
+     * Additionally, it prints the p and t pointer.
+     * @param stack to add
      */
-    public void sumarYAgregar(StackList<Integer> stack) {
+    public void sumAndAdd(StackList<Integer> stack) {
         try {
             Node<Integer> topOfStack = stack.getRoot();
             Node<Integer> t = topOfStack;

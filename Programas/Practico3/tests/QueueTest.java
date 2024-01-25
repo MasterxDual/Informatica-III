@@ -429,20 +429,20 @@ public class QueueTest<T extends Comparable<T>> {
     }
 
     /**
-     * Suma todos los datos de los nodos mayores a un valor 'limite'. 
-     * Fue implementado para una lista enlazada en principio, pero funciona para una cola enlazada tambien.
-     * @param limite valor tope a sumar los nodos
-     * @param head nodo front de la cola enlazada. O nodo head de la lista enlazada
-     * @return sumatoria de todos los nodos mayores al valor 'limite'
+     * Adds all the data of the nodes larger than a 'limit' value. 
+     * It was implemented for a linked list in principle, but it works for a linked queue as well.
+     * @param limite maximum value to add the nodes
+     * @param head front node of the queue list. Or head node of the linked list
+     * @return sum of all nodes greater than the 'limit' value
      */
-    public int sumatoria(T limite, Node<T> head) {
+    public int summation(T limite, Node<T> head) {
         if(head == null) {
             return 0;
         }
         if(head.getData().compareTo(limite) > 0) {
-            return (int)head.getData() + sumatoria(limite, head.getNext());
+            return (int)head.getData() + summation(limite, head.getNext());
         }
-        return sumatoria(limite, head.getNext());
+        return summation(limite, head.getNext());
     }
 
     /**

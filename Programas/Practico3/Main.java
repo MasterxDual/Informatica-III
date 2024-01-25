@@ -76,13 +76,13 @@ public class Main {
         test2.printQueue(originalQueue3);
         
         /* try {
-            System.out.println(test2.sumatoria(90, originalQueue3.getFrontNode()));
+            System.out.println(test2.summation(90, originalQueue3.getFrontNode()));
         } catch(QueueIsEmptyException e) {
             System.out.println(e.getMessage());
         } */
 
         /* try {
-            originalQueue3.moverPri(1);
+            originalQueue3.moveFirst(1);
             System.out.println("Cola luego de mover al principio:");
             test2.printQueue(originalQueue3);
         } catch (NullPointerException e) {
@@ -119,7 +119,7 @@ public class Main {
         /* try {
             System.out.println("Pila original:");
             originalStack1.printStack(originalStack1.getRoot());
-            test1.reemplazar(originalStack1, 20, 10);
+            test1.replace(originalStack1, 20, 10);
             System.out.println("Pila modificada:");
             originalStack1.printStack(originalStack1.getRoot());
         } catch(StackIsEmptyException e) {
@@ -131,7 +131,7 @@ public class Main {
         /* try {
             System.out.println("Pila original:");
             originalStack1.printStack(originalStack1.getRoot());
-            test1.sumarYAgregar(originalStack1);
+            test1.sumAndAdd(originalStack1);
             System.out.println("Pila modificada:");
             originalStack1.printStack(originalStack1.getRoot());    
         } catch (NullPointerException e) {
