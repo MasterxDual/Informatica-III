@@ -485,4 +485,35 @@ public class QueueTest<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * Searchs for the 'v' value in the queue list, if found, moves that element to the first element of the queue. 
+     * If not found, throws NullPointerException.
+     * @param queue list to search
+     * @param v value to find in the queue list
+     */
+    public void moveToFront(QueueList<T> queue, T v) {
+        try {
+            Node<T> temp = queue.getFrontNode();
+            Node<T> temp2 = temp;
+    
+            while(temp.getData().compareTo(v) != 0) {
+                temp = temp.getNext();
+            }
+    
+            while(temp2.getNext() != temp) {
+                temp2 = temp2.getNext();
+            }
+    
+            temp2.setNext(temp.getNext());
+            temp.setNext(queue.getFrontNode());
+            queue.setFront(temp);
+            
+        } catch (QueueIsEmptyException e) {
+            System.out.println(e.getMessage());
+        } catch(NullPointerException a) {
+            System.err.println("No existe el valor que se quiere mover en la cola.");
+            throw a;
+        }
+    }
+
 }

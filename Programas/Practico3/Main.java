@@ -89,8 +89,15 @@ public class Main {
             System.out.println("La posicion no existe");
         } */
 
-        test2.eliminateListNodes(originalQueue3, test1.insertStackByInput(new StackList<>()));
-        test2.printQueue(originalQueue3);
+        /* test2.eliminateListNodes(originalQueue3, test1.insertStackByInput(new StackList<>()));
+        test2.printQueue(originalQueue3); */
+
+        try {
+            test2.moveToFront(originalQueue3, 10);
+            test2.printQueue(originalQueue3);
+        } catch (NullPointerException e) {
+            System.err.println("Abortando procedimiento.");
+        }
 
         /*System.out.println("Cola original desordenada: ");
         test3.printQueue(originalQueue5);
