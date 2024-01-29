@@ -412,20 +412,20 @@ public class QueueTest<T extends Comparable<T>> {
     }
 
     /**
-     * Busca en forma recursiva un valor especifico en un objeto de lista enlazada. 
-     * @param queue a buscar en forma recursiva
-     * @param temp puntero utilizado para buscar en la cola
-     * @param value a encontrar
-     * @return un puntero al valor encontrado, null en caso de no haberlo encontrado.
+     * Recursively searches a specific value in a linked list object.
+     * @param queue to search recursively
+     * @param temp pointer used to search the queue
+     * @param value to find
+     * @return a pointer to the value found, null if it was not found.
      */
-    public Node<T> searchList(QueueList<T> queue, Node<T> temp, T value) {
+    public Node<T> searchList(Node<T> temp, T value) {
         if(temp == null) {
             return null;
         }
         if(temp.getData().compareTo(value) == 0) {
             return temp;
         }
-        return searchList(queue, temp.getNext(), value);
+        return searchList(temp.getNext(), value);
     }
 
     /**

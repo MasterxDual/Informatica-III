@@ -92,12 +92,12 @@ public class Main {
         /* test2.eliminateListNodes(originalQueue3, test1.insertStackByInput(new StackList<>()));
         test2.printQueue(originalQueue3); */
 
-        try {
+        /* try {
             test2.moveToFront(originalQueue3, 10);
             test2.printQueue(originalQueue3);
         } catch (NullPointerException e) {
             System.err.println("Abortando procedimiento.");
-        }
+        } */
 
         /*System.out.println("Cola original desordenada: ");
         test3.printQueue(originalQueue5);
@@ -110,17 +110,17 @@ public class Main {
         System.out.println("Cola ordenada de menor a mayor:");
         test2.sortQueueListAscending2(originalQueue3); */
 
-        /*
+        
         QueueList<Double> queueByInput = test4.createQueueListByInput();
         try {
             System.out.println("¿Que valor desea buscar en la lista?");
             Double value = new Scanner(System.in).nextDouble();
-            System.out.println("Valor encontrado: " + test4.searchList(queueByInput, queueByInput.getFrontNode(), value).getData());
+            System.out.println("Valor encontrado: " + test4.searchList(queueByInput.getFrontNode(), value).getData());
         } catch (QueueIsEmptyException e) {
             System.out.println(e.getMessage());
         } catch(NullPointerException a) {
             System.err.println("El valor no fue encontrado en la lista.");
-        } */
+        }
 
         /* StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>()); */
         /* try {
