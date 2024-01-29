@@ -69,11 +69,11 @@ public class Main {
         /* System.out.println("Usted esta por comenzar a crear una cola enlazada con numeros enteros:");
         System.out.println("La suma de todos los elementos de la cola es igual a "+ test4.sumOfQueueNumbers(test4.createQueueListByInput())); */
 
-        System.out.println("Cola original desordenada: ");
+        /* System.out.println("Cola original desordenada: ");
         test2.printQueue(originalQueue3);
         System.out.println("Cola ordenada de mayor a menor");
         test2.sortQueueListAscending(originalQueue3);
-        test2.printQueue(originalQueue3);
+        test2.printQueue(originalQueue3); */
         
         /* try {
             System.out.println(test2.summation(90, originalQueue3.getFrontNode()));
@@ -111,7 +111,7 @@ public class Main {
         test2.sortQueueListAscending2(originalQueue3); */
 
         
-        QueueList<Double> queueByInput = test4.createQueueListByInput();
+        /* QueueList<Double> queueByInput = test4.createQueueListByInput();
         try {
             System.out.println("¿Que valor desea buscar en la lista?");
             Double value = new Scanner(System.in).nextDouble();
@@ -120,9 +120,9 @@ public class Main {
             System.out.println(e.getMessage());
         } catch(NullPointerException a) {
             System.err.println("El valor no fue encontrado en la lista.");
-        }
+        } */
 
-        /* StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>()); */
+        StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>());
         /* try {
             System.out.println("Pila original:");
             originalStack1.printStack(originalStack1.getRoot());
@@ -133,7 +133,19 @@ public class Main {
             System.err.println(e.getMessage());
         } catch(NullPointerException a) {
             System.err.println("Abortando procedimiento.");
-        } */
+        } */ 
+
+        try {
+            System.out.println("Pila original:");
+            originalStack1.printStack(originalStack1.getRoot());
+            test1.replace2(originalStack1, 20, 10);
+            System.out.println("Pila modificada:");
+            originalStack1.printStack(originalStack1.getRoot());
+        } catch(StackIsEmptyException e) {
+            System.err.println(e.getMessage());
+        } catch(NullPointerException a) {
+            System.out.println("Abortando procedimiento.");
+        }
 
         /* try {
             System.out.println("Pila original:");

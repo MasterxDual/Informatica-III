@@ -308,6 +308,33 @@ public class StackTest {
         }
     }
 
+    /**
+     * This is for one or more 'old values' found in the stack list. The previous method replace is only for one 'old value'.
+     * If it finds the 'old' value on the bound stack, it replaces it with the 'new' value. 
+     * Otherwise, throw an exception.
+     * @param stack to search for the element
+     * @param newValue value that replaces the other
+     * @param oldValue replaced value
+     * @throws NullPointerException If don't find the value 'old'
+     */
+    public void replace2(StackList<Integer> stack, int newValue, int oldValue) throws NullPointerException {
+        Node<Integer> temp = stack.getRoot();
+        int count = 0;
+        
+        while(temp != null) {
+            if(oldValue == temp.getData()) {
+                temp.setData(newValue);
+                count++;
+            }
+            temp = temp.getNext();
+        }
+        if(count == 0) {
+            System.out.println("No se encontró el valor " + oldValue + " en la pila.");
+            throw new NullPointerException();
+        }
+         
+    }
+
     /**A pointer p points to the base and another t points to the last added element.
      * Reads the last two numbers added and stores the sum of these on the same stack.
      * Additionally, it prints the p and t pointer.
