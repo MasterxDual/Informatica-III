@@ -4,12 +4,13 @@ public class RedBlackNode<T> {
     T value;
     RedBlackNode<T> leftNode;
     RedBlackNode<T> rightNode;
+    RedBlackNode<T> father;
     int colour; //Colour red is 1, colour black is 0.
 
     public RedBlackNode(T value) {
         this.value = value;
         this.colour = 1; //Every new node is red.
-        this.leftNode = this.rightNode = null;
+        this.leftNode = this.rightNode = this.father = null;
     }
     
     public RedBlackNode(T value, RedBlackNode<T> leftNode, RedBlackNode<T> rightNode) {
