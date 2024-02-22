@@ -169,6 +169,116 @@ public class RedBlackTree<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * Help method, it helps us move subtrees within the tree and it's called by delete method.
+     * @param u is the node to be eliminated.
+     * @param v is the right child of u.
+     */
+    private void transplant(RedBlackNode<T> u,  RedBlackNode<T> v) {
+        if(u.father == null) { //u is root.
+            this.root = v;
+        } else if(u == u.father.leftNode) { //u is left child.
+            u.father.leftNode = v;
+        } else { //u is right child.
+            u.father.rightNode = v;
+        }
+        v.father = u.father;
+    }
 
+    /**
+     * When we delete a node from a red-black tree, we may need to rebalance or recolour nodes to make sure the properties of the 
+     * red-black tree are still fine.
+     * @param x
+     */
+    private void balanceAfterDelete(RedBlackNode<T> x) {
+        RedBlackNode<T> w; //Sibling of x.
+
+        /* Types of fixes:
+         * Type 1: w is red.
+         * Type 2: w is black, and w.left and w.right are black.
+         * Type 3: w is black, and w.left is red and w.right is black.
+         * Type 4: w is black, and w.right is red.
+         */
+        while(x != this.root && x.colour == 0) {
+            if(x == x.father.leftNode) {
+                w = x.father.rightNode;
+                //Type 1:
+                if(w.colour == 1) {
+                    w.colour = 0;
+                    x.father.colour = 1;
+                    leftRotate(x.father);
+                    w = x.father.rightNode;
+                }
+                //Type 2:
+                if(w.leftNode.colour == 0 && w.rightNode.colour == 0) {
+                    w.colour = 1;
+                    x = x.father;
+                } else {
+                    //Type 3:
+                    if(w.rightNode.colour == 0) {
+                        w.leftNode.colour = 0;
+                        w.colour = 1;
+                        rightRotate(w);
+                        w = x.father.rightNode;
+                    }
+                    //Type 4:
+                    w.colour = x.father.colour;
+                    x.father.colour = 0;
+                    w.rightNode.colour = 0;
+                    leftRotate(x.father);
+                    x = this.root;
+                }
+            } else {
+                w = x.father.leftNode;
+                //Type 1:
+                if(w.colour == 1) {
+                    w.colour = 0;
+                    x.father.colour = 1;
+                    rightRotate(x.father);
+                    w = x.father.leftNode;
+                }
+                //Type 2:
+                if(w.rightNode.colour == 0 && w.leftNode.colour == 0) {
+                    w.colour = 1;
+                    x = x.father;
+                } else {
+                    //Type 3:
+                    if(w.leftNode.colour == 0) {
+                        w.rightNode.colour = 0;
+                        w.colour = 1;
+                        leftRotate(w);
+                        w = x.father.leftNode;
+                    }
+                    //Type 4:
+                    w.colour = x.father.colour;
+                    x.father.colour = 0;
+                    w.leftNode.colour = 0;
+                    rightRotate(x.father);
+                    x = this.root;
+                }
+            }
+        }
+        x.colour = 0;
+    }
+
+    /**
+     * Searchs for a node with value 'k' in the red-black tree. 
+     * @param k value to find.
+     * @return node found, otherwise returns nil.
+     */
+    public RedBlackNode<T> search(T k) {
+        RedBlackNode<T> x = root;
+
+        while(x != nil && !k.equals(x.value)) {
+            if(k.compareTo(x.value) < 0) {
+                x = x.leftNode;
+            } else {
+                x = x.rightNode;
+            }
+        }
+        return x;
+    }
+
+    
 
 }
