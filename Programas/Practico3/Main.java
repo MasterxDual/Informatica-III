@@ -9,6 +9,7 @@ import Practico3.tests.AvlTreeTest;
 import Practico3.tests.BinarySearchTreeTest;
 import Practico3.tests.BinaryTreeTest;
 import Practico3.tests.QueueTest;
+import Practico3.tests.RedBlackTreeTest;
 import Practico3.tests.StackTest;
 import Practico3.utils.AVLNode;
 import Practico3.utils.AVLTree;
@@ -16,6 +17,7 @@ import Practico3.utils.BinarySearchTree;
 import Practico3.utils.BinaryTree;
 import Practico3.utils.Queue;
 import Practico3.utils.QueueList;
+import Practico3.utils.RedBlackTree;
 import Practico3.utils.Stack;
 import Practico3.utils.StackList;
 
@@ -38,7 +40,9 @@ public class Main {
         BinarySearchTreeTest<Double> treeTest3 = new BinarySearchTreeTest();
         AvlTreeTest<Integer> avlTreeTest1 = new AvlTreeTest<>();
         AVLTree<Integer> avlTree1 = new AVLTree<>();
-
+        RedBlackTreeTest<Integer> redBlackTreeTest1 = new RedBlackTreeTest<>();
+        RedBlackTree<Integer> redBlackTree1 = new RedBlackTree<>(Integer.class);
+        
         /*
         test1.testStackInteger();
         test1.testStackString(); 
@@ -122,7 +126,7 @@ public class Main {
             System.err.println("El valor no fue encontrado en la lista.");
         } */
 
-        StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>());
+        /* StackList<Integer> originalStack1 = test1.insertStackByInput(new StackList<>()); */
         /* try {
             System.out.println("Pila original:");
             originalStack1.printStack(originalStack1.getRoot());
@@ -135,7 +139,7 @@ public class Main {
             System.err.println("Abortando procedimiento.");
         } */ 
 
-        try {
+        /* try {
             System.out.println("Pila original:");
             originalStack1.printStack(originalStack1.getRoot());
             test1.replace2(originalStack1, 20, 10);
@@ -145,7 +149,7 @@ public class Main {
             System.err.println(e.getMessage());
         } catch(NullPointerException a) {
             System.out.println("Abortando procedimiento.");
-        }
+        } */
 
         /* try {
             System.out.println("Pila original:");
@@ -219,5 +223,6 @@ public class Main {
         avlTree1.inOrder(treeF.getRoot());
         System.out.println("La cantidad de nodos del arbol avl donde se eliminó al 30 es igual a " + avlTree1.getNumNodes(treeF.getRoot())); */
 
+        redBlackTree1.printOrderWithColour(redBlackTreeTest1.createFirstRedBlackTree().getRoot());
     }
 }
