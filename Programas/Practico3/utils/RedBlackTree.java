@@ -7,14 +7,23 @@ public class RedBlackTree<T extends Comparable<T>> {
     
     public RedBlackTree(Class<T> type) {
         this.type = type;
-    }
-
-    public RedBlackTree() {
         if(type.equals(Integer.class)) {
             nil = new RedBlackNode<>(type.cast(-1));
-            nil.colour = 0; //Black colour
-            root = nil;
+        } else if(type.equals(Double.class)) {
+            nil = new RedBlackNode<>(type.cast(-1.0));
+        } else if(type.equals(String.class)) {
+            nil = new RedBlackNode<>(type.cast(""));
         }
+        nil.colour = 0; //Black colour
+        root = nil;
+    }
+
+    public RedBlackNode<T> getRoot() {
+        return root;
+    }
+
+    public void setRoot(RedBlackNode<T> root) {
+        this.root = root;
     }
 
     public RedBlackTree(RedBlackNode<T> root) {
@@ -148,23 +157,15 @@ public class RedBlackTree<T extends Comparable<T>> {
     }
 
     /**
-     * Prints values and colours of all red-black tree in order, uses no parameter to discard it so
-     * there's no need to use nothing in this method, just you need to call it and it's done.
-     */
-    public void printOrderWithColour() {
-        printOrderWithColourRecursive(root);
-    }
-
-    /**
-     * Print values and colours of all red-black tree in order. 
+     * Print values and colours of all red-black tree inorder. 
      * This method is invoked by printOrderWithColour method.
      * @param node
      */
-    private void printOrderWithColourRecursive(RedBlackNode<T> node) {
-        if(node != nil) {
-            printOrderWithColourRecursive(node.leftNode);
+    public void printOrderWithColour(RedBlackNode<T> node) {
+        if(node != nil && node != null && !node.value.equals(-1)) {
+            printOrderWithColour(node.leftNode);
             System.out.println("Value: " + node.value + " - Colour: " + (node.colour == 1 ? "Red" : "Black"));
-            printOrderWithColourRecursive(node.rightNode);
+            printOrderWithColour(node.rightNode);
         }
     }
 
