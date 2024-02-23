@@ -223,6 +223,10 @@ public class Main {
         avlTree1.inOrder(treeF.getRoot());
         System.out.println("La cantidad de nodos del arbol avl donde se eliminó al 30 es igual a " + avlTree1.getNumNodes(treeF.getRoot())); */
 
+        System.out.println("First red-black tree:");
         redBlackTree1.printOrderWithColour(redBlackTreeTest1.createFirstRedBlackTree().getRoot());
+        System.out.println("Second red-black tree:");
+        redBlackTree1.printOrderWithColour(redBlackTreeTest1.createSecondRedBlackTree().getRoot());
+        System.out.println(redBlackTreeTest1.createSecondRedBlackTree().getRoot().getValue());
     }
 }
