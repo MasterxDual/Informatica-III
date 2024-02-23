@@ -200,7 +200,7 @@ public class RedBlackTree<T extends Comparable<T>> {
          * Type 3: w is black, and w.left is red and w.right is black.
          * Type 4: w is black, and w.right is red.
          */
-        while(x != this.root && x.colour == 0) {
+        while(x != root && x.colour == 0) {
             if(x == x.father.leftNode) {
                 w = x.father.rightNode;
                 //Type 1:
@@ -227,7 +227,7 @@ public class RedBlackTree<T extends Comparable<T>> {
                     x.father.colour = 0;
                     w.rightNode.colour = 0;
                     leftRotate(x.father);
-                    x = this.root;
+                    x = root;
                 }
             } else {
                 w = x.father.leftNode;
@@ -255,7 +255,7 @@ public class RedBlackTree<T extends Comparable<T>> {
                     x.father.colour = 0;
                     w.leftNode.colour = 0;
                     rightRotate(x.father);
-                    x = this.root;
+                    x = root;
                 }
             }
         }
