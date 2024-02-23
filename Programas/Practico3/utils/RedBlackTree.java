@@ -1,6 +1,7 @@
 package Practico3.utils;
 
 public class RedBlackTree<T extends Comparable<T>> {
+    @SuppressWarnings("unused")
     private Class<T> type;
     RedBlackNode<T> root;
     RedBlackNode<T> nil; //Null node for representing leaf nodes.
@@ -279,6 +280,69 @@ public class RedBlackTree<T extends Comparable<T>> {
         return x;
     }
 
+    /**
+     * Looks for the minimum node of the red-black tree. 
+     * @param x reference node to find minimum.
+     * @return minimum node of red-black tree.
+     */
+    public RedBlackNode<T> minimum(RedBlackNode<T> x) {
+        while(x.leftNode != nil) {
+            x = x.leftNode;
+        }
+        return x;
+    }
+
+    /**
+     * Looks for value 'k' in red-black tree, if found deletes it, otherwise prints 'Value not found'. It uses methods 
+     * balanceAfterDelete, minimum, search and transplant.
+     * @param k value to find and then delete it (if found).
+     */
+    public void delete(T k) {
+        RedBlackNode<T> z = search(k);
+        RedBlackNode<T> x;
+        RedBlackNode<T> y;
+        int yOriginalColour;
+
+        if(z == nil) {
+            System.out.println("Value not found.");
+            return;
+        }
+        y = z;
+        yOriginalColour = y.colour;
+
+        if(z.leftNode == nil) {
+            //Case 1:
+            x = z.rightNode;
+            transplant(z, z.rightNode);
+        } else if(z.rightNode == nil) {
+            //Case 2:
+            x = z.leftNode;
+            transplant(z, z.leftNode);
+        } else {
+            //Case 3:
+            y = minimum(z.rightNode);
+            yOriginalColour = y.colour;
+            x = y.rightNode;
+
+            if(y.father == z) {
+                x.father = y;
+            } else {
+                transplant(y, y.rightNode);
+                y.rightNode = z.rightNode;
+                y.rightNode.father = y;
+            }
+
+            transplant(z, y);
+            y.leftNode = z.leftNode;
+            y.leftNode.father = y;
+            y.colour = z.colour;
+        }
+
+        if(yOriginalColour == 0) {
+            balanceAfterDelete(x);
+        }
+        
+    }
     
 
 }
