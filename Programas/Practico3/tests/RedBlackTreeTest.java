@@ -31,4 +31,20 @@ public class RedBlackTreeTest <T extends Comparable<T>> {
 
         return redBlackTree;
     }
+
+    public RedBlackTree<Integer> createThirdRedBlackTree() {
+        RedBlackTree<Integer> redBlackTree = new RedBlackTree<>(Integer.class);
+
+        redBlackTree.insert(80);
+        redBlackTree.insert(40);
+        redBlackTree.insert(90);
+        redBlackTree.insert(100);
+        redBlackTree.insert(20);
+        redBlackTree.rightRotate(redBlackTree.getRoot().getLeftNode());
+        redBlackTree.leftRotate(redBlackTree.getRoot().getRightNode());
+        redBlackTree.insert(85);
+
+        return redBlackTree;
+    }
+
 }

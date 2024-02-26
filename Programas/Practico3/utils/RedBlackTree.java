@@ -115,7 +115,7 @@ public class RedBlackTree<T extends Comparable<T>> {
      * Rotates from x node to the left (x node is the reference, the point from it will be rotated). 
      * @param x reference of going to rotate left the tree.
      */
-    private void leftRotate(RedBlackNode<T> x) {
+    public void leftRotate(RedBlackNode<T> x) {
         RedBlackNode<T> y = x.rightNode;
 
         x.rightNode = y.leftNode;
@@ -138,7 +138,7 @@ public class RedBlackTree<T extends Comparable<T>> {
      * Rotates from x node to the right (x node is the reference, the point from it will be rotated).
      * @param x reference of going to rotate right the tree.
      */
-    private void rightRotate(RedBlackNode<T> x) {
+    public void rightRotate(RedBlackNode<T> x) {
         RedBlackNode<T> y = x.leftNode;
 
         x.leftNode = y.rightNode;
@@ -343,6 +343,56 @@ public class RedBlackTree<T extends Comparable<T>> {
         }
         
     }
-    
 
+    /**
+     * Verifys if red-black tree accomplishes properties of a red-black tree.
+     * @return true if red-black tree accomplishes properties, otherwise returns false.
+     */
+    public boolean isRedBlackTreeValid() {
+        return checkRedBlackTreeProperties(root).isValid;
+    }
+
+    /**
+     * It does the work for method isRedBlackTreeValid.
+     * @param node reference where it will begin to verify if accomplishes properties of red-black tree.
+     * @return class Result of the red-black tree to be analyzed.
+     */
+    private Result checkRedBlackTreeProperties(RedBlackNode<T> node) {
+        if(node == null) {
+            return new Result(true, 1);
+        }
+
+        //Check if no red node have red child nodes.
+        if(node.colour == 1) {
+            if((node.leftNode != null && node.leftNode.colour == 1) || (node.rightNode != null && node.rightNode.colour == 1)) {
+                return new Result(false, 0);
+            }
+        }
+
+        //Check if quantity of black nodes in every way from root node to leaf nodes (nil nodes) is equal
+        Result leftResult = checkRedBlackTreeProperties(node.leftNode);
+        Result rightResult = checkRedBlackTreeProperties(node.rightNode);
+
+        if(!leftResult.isValid || !rightResult.isValid) {
+            return new Result(false, 0);
+        }
+
+        if(leftResult.blackHeight != rightResult.blackHeight) {
+            return new Result(false, 0);
+        }
+
+        return new Result(true, leftResult.blackHeight + (node.colour == 0 ? 1 : 0));
+    }
+    
+    private static class Result {
+        boolean isValid;
+        int blackHeight;
+    
+        public Result(boolean isValid, int blackHeight) {
+            this.isValid = isValid;
+            this.blackHeight = blackHeight;
+        }
+    }
 }
+
+

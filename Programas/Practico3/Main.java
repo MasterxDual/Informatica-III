@@ -225,8 +225,18 @@ public class Main {
 
         System.out.println("First red-black tree:");
         redBlackTree1.printOrderWithColour(redBlackTreeTest1.createFirstRedBlackTree().getRoot());
+        
         System.out.println("Second red-black tree:");
         redBlackTree1.printOrderWithColour(redBlackTreeTest1.createSecondRedBlackTree().getRoot());
         System.out.println(redBlackTreeTest1.createSecondRedBlackTree().getRoot().getValue());
+
+        System.out.println("Third red-black tree:");
+        redBlackTree1.printOrderWithColour(redBlackTreeTest1.createThirdRedBlackTree().getRoot());
+
+        System.out.println("¿El primer arbol creado cumple con las propiedades del arbol rojinegro? " + (redBlackTreeTest1.createFirstRedBlackTree().isRedBlackTreeValid() ? "Si" : "No"));
+
+        System.out.println("¿El segundo arbol creado cumple con las propiedades del arbol rojinegro? " + (redBlackTreeTest1.createSecondRedBlackTree().isRedBlackTreeValid() ? "Si" : "No"));
+
+        System.out.println("¿El tercer arbol creado cumple con las propiedades del arbol rojinegro? " + (redBlackTreeTest1.createThirdRedBlackTree().isRedBlackTreeValid() ? "Si" : "No"));
     }
 }
