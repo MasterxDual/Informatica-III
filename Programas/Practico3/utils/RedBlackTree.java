@@ -384,6 +384,37 @@ public class RedBlackTree<T extends Comparable<T>> {
         return new Result(true, leftResult.blackHeight + (node.colour == 0 ? 1 : 0));
     }
     
+    /**
+     * Gets max black height of a red-black tree. Every way should have same number of 
+     * black nodes (black height should be same in every way).
+     * @return max black height, 0 if red-black tree is empty.
+     */
+    public int getMaxBlackHeight() {
+        return getMaxBlackHeightRecursive(root);
+    }
+    
+    /**
+     * Auxiliar method to calculate max black height
+     * @param node reference to calculate max black height.
+     * @return max black height, 0 if red-black tree is empty.
+     */
+    private int getMaxBlackHeightRecursive(RedBlackNode<T> node) {
+        if(node == null) {
+            return 0;
+        }
+
+        //Black heights of left and right subtrees.
+        int leftBlackHeight = getMaxBlackHeightRecursive(node.getLeftNode());
+        int rightBlackHeight = getMaxBlackHeightRecursive(node.getRightNode());
+
+        if(node.colour == 0) {
+            return Math.max(leftBlackHeight, rightBlackHeight) + 1;
+        } else {
+            //If node is red, black height doesn't change.
+            return Math.max(leftBlackHeight, rightBlackHeight);
+        }
+    }
+
     private static class Result {
         boolean isValid;
         int blackHeight;

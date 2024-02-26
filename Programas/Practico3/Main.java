@@ -238,5 +238,11 @@ public class Main {
         System.out.println("¿El segundo arbol creado cumple con las propiedades del arbol rojinegro? " + (redBlackTreeTest1.createSecondRedBlackTree().isRedBlackTreeValid() ? "Si" : "No"));
 
         System.out.println("¿El tercer arbol creado cumple con las propiedades del arbol rojinegro? " + (redBlackTreeTest1.createThirdRedBlackTree().isRedBlackTreeValid() ? "Si" : "No"));
+
+        System.out.println("Maxima altura negra del primer arbol: " + redBlackTreeTest1.createFirstRedBlackTree().getMaxBlackHeight());
+        System.out.println("Maxima altura negra del segundo arbol: " + redBlackTreeTest1.createSecondRedBlackTree().getMaxBlackHeight());
+        System.out.println("Maxima altura negra del tercer arbol: " + redBlackTreeTest1.createThirdRedBlackTree().getMaxBlackHeight());
+        
+
     }
 }
