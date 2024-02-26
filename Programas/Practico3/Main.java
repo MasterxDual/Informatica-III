@@ -6,6 +6,7 @@ import Practico3.exceptions.ItemNotFoundException;
 import Practico3.exceptions.QueueIsEmptyException;
 import Practico3.exceptions.StackIsEmptyException;
 import Practico3.tests.AvlTreeTest;
+import Practico3.tests.BinaryHeapTest;
 import Practico3.tests.BinarySearchTreeTest;
 import Practico3.tests.BinaryTreeTest;
 import Practico3.tests.QueueTest;
@@ -13,6 +14,7 @@ import Practico3.tests.RedBlackTreeTest;
 import Practico3.tests.StackTest;
 import Practico3.utils.AVLNode;
 import Practico3.utils.AVLTree;
+import Practico3.utils.BinaryHeap;
 import Practico3.utils.BinarySearchTree;
 import Practico3.utils.BinaryTree;
 import Practico3.utils.Queue;
@@ -42,7 +44,9 @@ public class Main {
         AVLTree<Integer> avlTree1 = new AVLTree<>();
         RedBlackTreeTest<Integer> redBlackTreeTest1 = new RedBlackTreeTest<>();
         RedBlackTree<Integer> redBlackTree1 = new RedBlackTree<>(Integer.class);
-        
+        BinaryHeapTest<Integer> binaryHeapTest1 = new BinaryHeapTest<>();
+        BinaryHeap<Integer> binaryHeap1 = new BinaryHeap<>(Integer.class);
+
         /*
         test1.testStackInteger();
         test1.testStackString(); 
@@ -223,7 +227,7 @@ public class Main {
         avlTree1.inOrder(treeF.getRoot());
         System.out.println("La cantidad de nodos del arbol avl donde se eliminó al 30 es igual a " + avlTree1.getNumNodes(treeF.getRoot())); */
 
-        System.out.println("First red-black tree:");
+       /*System.out.println("First red-black tree:");
         redBlackTree1.printOrderWithColour(redBlackTreeTest1.createFirstRedBlackTree().getRoot());
         
         System.out.println("Second red-black tree:");
@@ -242,7 +246,12 @@ public class Main {
         System.out.println("Maxima altura negra del primer arbol: " + redBlackTreeTest1.createFirstRedBlackTree().getMaxBlackHeight());
         System.out.println("Maxima altura negra del segundo arbol: " + redBlackTreeTest1.createSecondRedBlackTree().getMaxBlackHeight());
         System.out.println("Maxima altura negra del tercer arbol: " + redBlackTreeTest1.createThirdRedBlackTree().getMaxBlackHeight());
-        
+        */
+
+        System.out.println("Primer monticulo binario:");
+        binaryHeapTest1.createFirstBinaryHeap().printHeap();
+        System.out.println("Segundo monticulo binario:");
+        binaryHeapTest1.createSecondBinaryHeap().printHeap();
 
     }
 }
