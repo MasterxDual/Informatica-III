@@ -20,6 +20,12 @@ public class QueueTest<T extends Comparable<T>> {
         this.type = type;
     }
 
+    /**
+     * Created a random queue with values from 1 to 100. It uses an intern or auxiliar method
+     * called 'createRandomString'.
+     * @param size of the queue to be created.
+     * @return queue created.
+     */
     public Queue<T> createRandomQueue(int size) {
         Queue<T> queue = new Queue<>(size);
 
@@ -39,6 +45,11 @@ public class QueueTest<T extends Comparable<T>> {
         return queue;
     }
 
+    /**
+     * Creates a random string from 1 to 10 lenght. First creates a random string between 1 and 10 
+     * characters, and finally generates a random lowercase letter to create the string.
+     * @return random string created.
+     */
     public String createRandomString() {
         char[] chars = new char[random.nextInt(10) + 1]; // Generate a random string of length between 1 and 10
 
@@ -178,6 +189,12 @@ public class QueueTest<T extends Comparable<T>> {
     
     }
 
+    /**
+     * Creates a new queue list of strings. It inserts 'Hola', 'Mundo', then eliminates 'Hola', then
+     * prints front element, prints if is empty, makes the queue empty, then it prints if it empty again,
+     * then inserts 'Hola', 'Mundo', 'Adios', '!!!' and finally eliminates 5 times the elemens of the 
+     * queue list, printing that queue is empty in the last line of code.
+     */
     public void testQueueListString() {
         QueueList <String> queue = new QueueList<>();
 
