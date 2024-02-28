@@ -9,6 +9,7 @@ import Practico3.tests.AvlTreeTest;
 import Practico3.tests.BinaryHeapTest;
 import Practico3.tests.BinarySearchTreeTest;
 import Practico3.tests.BinaryTreeTest;
+import Practico3.tests.HashTableTest;
 import Practico3.tests.QueueTest;
 import Practico3.tests.RedBlackTreeTest;
 import Practico3.tests.StackTest;
@@ -17,6 +18,7 @@ import Practico3.utils.AVLTree;
 import Practico3.utils.BinaryHeap;
 import Practico3.utils.BinarySearchTree;
 import Practico3.utils.BinaryTree;
+import Practico3.utils.HashTable;
 import Practico3.utils.Queue;
 import Practico3.utils.QueueList;
 import Practico3.utils.RedBlackTree;
@@ -46,6 +48,8 @@ public class Main {
         RedBlackTree<Integer> redBlackTree1 = new RedBlackTree<>(Integer.class);
         BinaryHeapTest<Integer> binaryHeapTest1 = new BinaryHeapTest<>();
         BinaryHeap<Integer> binaryHeap1 = new BinaryHeap<>(Integer.class);
+        HashTableTest<String, Integer> hashTableTest1 = new HashTableTest<>();
+        HashTable<String, Integer> hashTable1 = new HashTable<>(String.class, Integer.class);
 
         /*
         test1.testStackInteger();
@@ -248,10 +252,16 @@ public class Main {
         System.out.println("Maxima altura negra del tercer arbol: " + redBlackTreeTest1.createThirdRedBlackTree().getMaxBlackHeight());
         */
 
-        System.out.println("Primer monticulo binario:");
+        /* System.out.println("Primer monticulo binario:");
         binaryHeapTest1.createFirstBinaryHeap().printHeap();
         System.out.println("Segundo monticulo binario:");
         binaryHeapTest1.createSecondBinaryHeap().printHeap();
+         */
+
+        /* hashTableTest1.createFirstHashTable().printHashTable();
+        hashTableTest1.createSecondHashTable().printHashTable(); */
+
+        
 
     }
 }
