@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.TreeMap;
 
 import Practico3.utils.Person;
 
@@ -156,7 +157,53 @@ public class Main2 {
            This is because it uses an underlying array.
          */
         Map<String, Integer> agesMap = new HashMap<>();
-        
+
+        /** The TreeMap in Java is a data structure that implements the Map interface using a Red-Black tree.
+           Sometimes you need to store data in a structured way and be able to navigate through it. 
+           In this case, another implementation of the Map interface (TreeMap) comes to the rescue. 
+           TreeMap implements the Navigable Map interface, which inherits Sorted Map, which in turn inherits the Map interface. 
+           By implementing the NavigableMap and SortedMap interfaces, TreeMap receives additional functionality that is not available 
+           in HashMap, but it pays a price in terms of performance. 
+         *    Common uses:
+         * Implementing complex data structures: You can use a TreeMap as a base to implement more complex data structures, 
+           such as a MultiMap (a map that can contain multiple values for a given key), or an IntervalMap 
+           (a map that can map intervals to values).
+         * Ranges and Submaps: TreeMaps allow you to perform range operations, such as obtaining a subset of elements 
+           within a specific range of keys. This can be useful in situations where you need to work with a subset 
+           of the elements in the map.
+         * Maintain an ordered collection of elements: One of the main advantages of a TreeMap is that it keeps 
+           its elements ordered according to the key. This can be useful when you need to keep a collection of 
+           items in a specific order, such as ordering words in a dictionary, names in a phone list, or dates on a calendar.
+              Time Complexity:
+         * Insertion, deletion, search, min/max retrieval are O(log n).
+         * Iteration through all elements: O(n), where 'n' is the number of elements in the TreeMap.
+         * Space complexity is O(n), where 'n' is the number of key-value mappings stored in the TreeMap.
+              Advantages:
+         * Ordered: The elements in a TreeMap are ordered according to their natural ordering (increasing order) 
+           or a custom comparator, which can be useful for certain applications.
+         * Efficient retrieval: TreeMap provides efficient retrieval of elements based on their keys, with a time 
+           complexity of O(log n) for operations like get, put, and remove.
+         * NavigableMap operations: TreeMap implements the NavigableMap interface, 
+           providing navigational methods for querying the map based on the order of the keys.
+         * Efficiency in lookup and access operations: Like HashMaps, TreeMaps also use an underlying binary 
+           search tree structure, allowing efficient lookup and access operations in logarithmic time (O(log n)).
+         * Iteration in order: Since the elements of a TreeMap are sorted by key, you can iterate over them in 
+           ascending or descending order using the forEach, keySet, entrySet, etc. methods.
+              Disadvantages:
+         * Memory consumption: TreeMaps can consume more memory than other data structures due to the overhead 
+           associated with maintaining the ordered search tree structure. This can be especially noticeable 
+           in large data collections.
+         * Slower insertion and deletion: While retrieval is efficient, insertion and deletion operations 
+           in a TreeMap have a time complexity of O(log n), which can be slower than HashMap for large datasets, 
+           especially in situations where the tree needs to be rebalanced to maintain its order property.
+         * Not thread-safe: TreeMap is not thread-safe by default, so concurrent access to a TreeMap 
+           without proper synchronization can lead to data inconsistency.
+         * Complexity in order customization: If you need to customize the order of elements based on 
+           something other than the key, such as a custom comparator, it can be a little more complicated 
+           to implement compared to other data structures.
+         */
+        Map<String, Integer> agesMap2 = new TreeMap<>();
+
         /*int count = 1;
 
         people.add(new Person("Agustin", 26));
@@ -216,7 +263,7 @@ public class Main2 {
         people2.forEach(System.out::println);
         */
 
-        agesMap.put("Juan", 30);
+        /* agesMap.put("Juan", 30);
         agesMap.put("Pedro", 25);
         agesMap.put("Maria", 40);
         agesMap.put("Jose", 35);
@@ -233,7 +280,27 @@ public class Main2 {
         System.out.println("HashMap after elimination:");
         agesMap.forEach((name, age) -> {
             System.out.println("Name: " + name + ", Age: " + age);
+        }); */
+
+        /* agesMap2.put("Carlos", 10);
+        agesMap2.put("Martin", 26);
+        agesMap2.put("Leandro", 30);
+
+        System.out.println("TreeMap before elimination:");
+        for(Map.Entry<String, Integer> entry : agesMap2.entrySet()) {
+          System.out.println("Name: " + entry.getKey() + ", Age: " + entry.getValue());
+        }
+
+        String nameToFind = "Leandro";
+        System.out.println("Name to find: " + nameToFind + ", Age: " + agesMap2.get(nameToFind));
+
+        String nameToRemove = "Carlos";
+        agesMap2.remove(nameToRemove);
+        System.out.println("TreeMap after eliminating element with key " + nameToRemove);
+        agesMap2.forEach((key, value) -> {
+          System.out.println("Name: " + key + ", Age: " + value);
         });
-        
+         */
+
     }
 }
