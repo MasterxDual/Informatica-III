@@ -2,6 +2,7 @@ package Practico3;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
@@ -46,7 +47,7 @@ public class Main2 {
            initially allocated with a large capacity but does not use all of it.
          * Slower Insertions and Deletions: Inserting or deleting elements in the middle
            of an ArrayList can be slower compared to other data structures like LinkedList.
-         */
+        */
         ArrayList<Person> people = new ArrayList<>();
 
         /* A Linked List is a linear data structure that is used to store a collection of data with the help of 
@@ -100,10 +101,10 @@ public class Main2 {
            with large data sets, as the extra memory required for the pointers can quickly add up. 
          * In conclusion, if you need fast access time, arrays might be a better choice, but if you need to
            insert or delete elements frequently, linked lists might be the better choice.
-         */
+        */
         LinkedList<Person> people2 = new LinkedList<>();
 
-        /**HashMap is a class in Java that provides a way to store and retrieve key-value pairs.
+        /* HashMap is a class in Java that provides a way to store and retrieve key-value pairs.
            It is part of the Java Collections Framework and is based on the hash table data structure.
            Each key is mapped to a value, which can be any Java object. The key must be unique
            within the HashMap, but the same value can be associated with multiple keys.
@@ -155,10 +156,10 @@ public class Main2 {
            implementation of the hashing function or a high load factor, the performance can be affected.
          * Higher memory usage: It can use more memory compared to other data structures in Java. 
            This is because it uses an underlying array.
-         */
+        */
         Map<String, Integer> agesMap = new HashMap<>();
 
-        /** The TreeMap in Java is a data structure that implements the Map interface using a Red-Black tree.
+        /* The TreeMap in Java is a data structure that implements the Map interface using a Red-Black tree.
            Sometimes you need to store data in a structured way and be able to navigate through it. 
            In this case, another implementation of the Map interface (TreeMap) comes to the rescue. 
            TreeMap implements the Navigable Map interface, which inherits Sorted Map, which in turn inherits the Map interface. 
@@ -201,8 +202,54 @@ public class Main2 {
          * Complexity in order customization: If you need to customize the order of elements based on 
            something other than the key, such as a custom comparator, it can be a little more complicated 
            to implement compared to other data structures.
-         */
+        */
         Map<String, Integer> agesMap2 = new TreeMap<>();
+
+        /* A linkedHashMap in Java is a hybrid data structure that implements the Map interface using 
+           a hash table and a linked list, providing predictable iteration order. You can access 
+           and manipulate key-value pairs in the order they were inserted, unlike a regular HashMap.
+           A LinkedHashMap is a Map, meaning it stores key-value pairs. The keys are unique, and each 
+           key maps to a specific value. However, unlike a regular HashMap, a LinkedHashMap also 
+           maintains the order in which keys were inserted. This is where it gets its 
+           name – it’s a HashMap that is also a LinkedList.
+         *    Common uses:
+         * Storing settings or properties in predefined order: If you need to maintain an ordered list 
+           of settings or properties in your application, a LinkedHashMap allows you to store them in 
+           the order in which they are specified, making it easier to later retrieve and process them.
+         * Implementation of caches with LRU (Least Recently Used) replacement policy: A LinkedHashMap 
+           can be used to implement a cache with LRU replacement policy. Setting the third parameter of 
+           the LinkedHashMap constructor to true activates access mode, which reorders elements according 
+           to the order in which they are accessed. This allows the least recently used items to be 
+           automatically removed when the cache capacity is reached.
+         * Iteration in insertion order: If you need to iterate over the elements of a map in 
+           the same order in which they were inserted, a LinkedHashMap guarantees that you 
+           maintain that order. This can be useful in situations where insertion order is 
+           important, such as log processing or maintaining the history of actions in an application.
+         *    Time Complexity:
+         * Insertion, remove and search have O(1) (best and worst case). Search has O(n) in worst case (when 
+           there are hash collisions and you need to traverse the elements in a linked list).
+         * Iteration (entrySet, keySet, values): O(n), where 'n' is the number of elements in the 
+           LinkedHashMap. Iterating over all map elements requires visiting each element 
+           once, which takes linear time based on the size of the map.
+         *    Advantages:
+         * Retains insertion order: LinkedHashMap maintains the order in which elements are 
+           inserted, which can be useful for iterating through the map in a predictable order.
+         * Faster iteration: Iterating through a LinkedHashMap is faster compared to a HashMap 
+           because of the doubly linked list used to maintain the insertion order.
+         * Implementation of Map interface and navigability: Like HashMap, LinkedHashMap 
+           implements the Map interface and also the NavigableMap interface, allowing 
+           advanced navigation operations to be performed on the map.
+         * Access order: LinkedHashMap can be configured to maintain elements based on their 
+           access order, which can be useful for implementing LRU (Least Recently Used) caching. 
+         *    Disadvantages:
+         * Higher memory overhead: LinkedHashMap has a higher memory overhead compared to 
+           HashMap due to the additional pointers for maintaining the insertion order.
+         * Slower insertion and deletion: Insertion and deletion operations in a LinkedHashMap 
+           are slower compared to a HashMap due to the additional overhead of maintaining the insertion order.
+         * Increased complexity: Maintaining insertion order introduces additional complexity to LinkedHashMap 
+           implementation and operations compared to HashMap, which could slightly impact performance and code complexity.
+        */
+        Map<String, TreeMap<String, Integer>> linkedHashMap = new LinkedHashMap<>();
 
         /*int count = 1;
 
@@ -301,6 +348,45 @@ public class Main2 {
           System.out.println("Name: " + key + ", Age: " + value);
         });
          */
+
+        TreeMap<String, Integer> treeMap1 = new TreeMap<>();
+
+        treeMap1.put("Gabriel", 25);
+        treeMap1.put("Valentina", 23);
+        treeMap1.put("Alejo", 25);
+        linkedHashMap.put("Students A", treeMap1);
+
+        TreeMap<String, Integer> treeMap2 = new TreeMap<>();
+        
+        treeMap2.put("Juan", 9);
+        treeMap2.put("Carlitos", 20);
+        treeMap2.put("Gregorio", 19);
+        linkedHashMap.put("Students B", treeMap2);
+
+        System.out.println("Linkedhashmap before elimination:");
+        linkedHashMap.forEach((team, treeMap) -> {
+          System.out.println("Team: " + team);
+          treeMap.forEach((name, age) -> {
+            System.out.println("Name: " + name + ", Age: " + age);
+          });
+        });
+
+        String team = "Students B";
+        System.out.println("Equipo: " + team);
+        linkedHashMap.get(team).forEach((name, age) -> {
+          System.out.println("Name: " + name + ", Age: " + age);
+        });
+        System.out.println(linkedHashMap.get(team));
+
+        String teamToRemove = "Students A";
+        linkedHashMap.remove(teamToRemove);
+        System.out.println("Linkedhashmap after elimination:");
+        for (Map.Entry<String, TreeMap<String, Integer>> entry : linkedHashMap.entrySet()) {
+          System.out.println("Team: " + entry.getKey());
+          for (Map.Entry<String, Integer> innerEntry : entry.getValue().entrySet()) {
+            System.out.println("Name: " + innerEntry.getKey() + ", Age: " + innerEntry.getValue());
+          }
+        }
 
     }
 }
